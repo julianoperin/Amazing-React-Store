@@ -21,9 +21,6 @@ const App = () => {
         <main>
           <Route exact path="/" component={HomeScreen} />
           <Route exact path="/product/:id" component={ProductScreen} />
-          {/* <Route exact path="/" component={HomeScreen} /> */}
-          <HomeScreen />
-          <ProductScreen />
         </main>
         <footer className="row center">All right reserved</footer>
       </div>

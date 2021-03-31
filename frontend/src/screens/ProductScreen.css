@@ -1,0 +1,32 @@
+/* Product Screen */
+
+.row .top {
+  align-items: flex-start;
+}
+
+.row img {
+  border: solid 1px gray;
+  max-width: 35rem;
+}
+
+.col-1 {
+  flex: 1 1 25rem;
+}
+
+.col-2 {
+  flex: 2 1 30rem;
+}
+
+.col-3 {
+  /* flex: 2 1 25rem; */
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+li {
+  margin-top: 1rem;
+}
