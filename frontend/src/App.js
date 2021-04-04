@@ -2,6 +2,7 @@ import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import CartScreen from "./screens/CartScreen";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <main>
           <Route exact path="/" component={HomeScreen} />
           <Route exact path="/product/:id" component={ProductScreen} />
+          <Route exact path="/cart/:id?" component={CartScreen} />
         </main>
         <footer className="row center">All right reserved</footer>
       </div>
