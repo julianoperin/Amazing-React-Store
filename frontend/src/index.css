@@ -88,8 +88,17 @@ a.brand {
 img {
   border-radius: 0.5rem;
 }
+
+img.small {
+  max-width: 5rem;
+  width: 100%;
+}
 img.medium {
   max-width: 29rem;
+  width: 100%;
+}
+
+img.large {
   width: 100%;
 }
 
@@ -142,4 +151,80 @@ img.medium {
 .alert-danger {
   color: #a02020;
   background-color: #f5b4b4;
+}
+
+/* Product Screen */
+
+.row .top {
+  align-items: flex-start;
+}
+
+.col-1 {
+  flex: 1 1 25rem;
+}
+
+.col-2 {
+  flex: 2 1 30rem;
+}
+
+.min-30 {
+  min-width: 30rem;
+}
+
+.col-3 {
+  /* flex: 2 1 25rem; */
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+li {
+  margin-top: 1rem;
+}
+
+/*! In stock */
+.success {
+  color: #20a020;
+}
+
+.error {
+  color: #a02020;
+}
+
+input,
+select,
+textarea,
+button {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem #a4a4a4 solid;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  background: #f8f8f8;
+  cursor: pointer;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border: 0.1rem #404040 solid;
+}
+
+button.primary {
+  background-color: #f0c040;
+}
+
+button.block {
+  width: 100%;
+}
+
+button:hover {
+  border: 0.1rem #404040 solid;
 }
