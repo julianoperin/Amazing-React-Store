@@ -14,7 +14,10 @@ import { detailsProduct } from "../actions/productActions";
 const ProductScreen = (props) => {
   const dispatch = useDispatch();
   const productId = props.match.params.id;
+  console.log(productId);
   const [qty, setQty] = useState(1);
+
+  // Get data from state
   const productDetails = useSelector((state) => state.productDetails);
   const { product, loading, error } = productDetails;
 
