@@ -24,9 +24,13 @@ const HomeScreen = () => {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div className="row center">
-          {products.map((product) => (
-            <Product key={product._id} product={product} />
-          ))}
+          {products.length > 0 ? (
+            products.map((product) => (
+              <Product key={product._id} product={product} />
+            ))
+          ) : (
+            <h2>No Products Found</h2>
+          )}
         </div>
       )}
     </div>
