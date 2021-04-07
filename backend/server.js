@@ -2,16 +2,19 @@ import express from "express";
 import mongoose from "mongoose";
 import userRouter from "./routers/userRouter.js";
 import productRouter from "./routers/productRouter.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
-mongoose.connect(
-  "mongodb+srv://julianoperin:julianoperin169@cluster-amazon.scgos.mongodb.net/amazon?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  }
-);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+mongoose.connect(process.env.MONGO, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+});
 
 //! Routers
 app.use("/api/users", userRouter);
