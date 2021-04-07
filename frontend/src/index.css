@@ -228,3 +228,20 @@ button.block {
 button:hover {
   border: 0.1rem #404040 solid;
 }
+
+/* Form */
+.form {
+  max-width: 60rem;
+  margin: 00 auto;
+}
+
+.form > div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form label {
+  margin: 1rem 0;
+  display: block;
+}
