@@ -2,8 +2,8 @@ import React from "react";
 
 const LoadingBox = () => {
   return (
-    <div>
-      <i className="fas fa-spinner"></i> Loading...
+    <div className="loading">
+      <i class="fas fa-spinner"></i> Loading...
     </div>
   );
 };

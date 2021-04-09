@@ -136,6 +136,10 @@ img.large {
 .danger {
   color: #a02020;
 }
+/* ! ALERT */
+.loading {
+  display: Block;
+}
 
 .alert {
   padding: 1rem;
