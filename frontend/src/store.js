@@ -12,6 +12,7 @@ import {
   userRegisterReducer,
 } from "./reducers/userReducers";
 
+//! If anything in locaStorage, parse to a JS Object
 const initialState = {
   userSignin: {
     userInfo: localStorage.getItem("userInfo")
@@ -22,6 +23,9 @@ const initialState = {
     cartItems: localStorage.getItem("cartItems")
       ? JSON.parse(localStorage.getItem("cartItems"))
       : [],
+    shippingAddress: localStorage.getItem("shippingAddress")
+      ? JSON.parse(localStorage.getItem("shippingAddress"))
+      : {},
   },
 };
 
