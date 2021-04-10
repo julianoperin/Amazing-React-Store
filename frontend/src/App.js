@@ -11,6 +11,7 @@ import RegisterScreen from "./screens/RegisterScreen";
 import { signout } from "./actions/userActions";
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
+import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 
 const App = () => {
   const cart = useSelector((state) => state.cart);
@@ -65,6 +66,7 @@ const App = () => {
           <Route exact path="/register" component={RegisterScreen} />
           <Route exact path="/shipping" component={ShippingAddressScreen} />
           <Route exact path="/payment" component={PaymentMethodScreen} />
+          <Route exact path="/placeorder" component={PlaceOrderScreen} />
         </main>
         <footer className="row center">All right reserved</footer>
       </div>

@@ -94,6 +94,7 @@ img.small {
   width: 100%;
 }
 img.medium {
+  /* max-height: 39rem; */
   max-width: 29rem;
   width: 100%;
 }
