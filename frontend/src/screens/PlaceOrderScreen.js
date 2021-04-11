@@ -14,13 +14,16 @@ const PlaceOrderScreen = (props) => {
   }
 
   //! Order Summary
-  const toPrice = (num) => Number(num.toFixed(2));
+  const toPrice = (num) => Number(num.toFixed(2)); // 5.123 => "5.12" => 5.12
   cart.itemsPrice = toPrice(
     cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
   );
-  cart.shippingAddress = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
-  cart.taxPrice = toPrice(8.875 * cart.itemsPrice);
-  cart.totalPrice = cart.itemsPrice + cart.shippingAddress + cart.taxPrice;
+  cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
+  cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
+  cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
+  const placeOrderHandler = () => {
+    // TODO: dispatch place order action
+  };
 
   return (
     <div>
@@ -34,14 +37,14 @@ const PlaceOrderScreen = (props) => {
                   <h2>Shipping</h2>
                   <p>
                     <strong>Name: </strong>
-                    {shippingAddress.fullName} <br />
+                    {cart.shippingAddress.fullName} <br />
                     <strong>Address: </strong>
                     {shippingAddress.address} <br />
-                    <strong>Address: </strong>
+                    <strong>City: </strong>
                     {shippingAddress.city} <br />
-                    <strong>Address: </strong>
+                    <strong>Postal Code: </strong>
                     {shippingAddress.postalCode} <br />
-                    <strong>Address: </strong>
+                    <strong>Country: </strong>
                     {shippingAddress.country} <br />
                   </p>
                 </div>
@@ -108,6 +111,53 @@ const PlaceOrderScreen = (props) => {
               </div>
             </li>
           </ul>
+        </div>
+        <div className="col-1">
+          <div className="card card-body">
+            <ul>
+              <li>
+                <h2>Order Summary</h2>
+              </li>
+              <li>
+                <div className="row">
+                  <div>Items</div>
+                  <div>${cart.itemsPrice.toFixed(2)}</div>
+                </div>
+              </li>
+              <li>
+                <div className="row">
+                  <div>Shipping </div>
+                  <div>${cart.shippingPrice.toFixed(2)}</div>
+                </div>
+              </li>
+              <li>
+                <div className="row">
+                  <div>Tax</div>
+                  <div>${cart.taxPrice.toFixed(2)}</div>
+                </div>
+              </li>
+              <li>
+                <div className="row">
+                  <div>
+                    <strong> Order Total</strong>
+                  </div>
+                  <div>
+                    <strong>${cart.totalPrice.toFixed(2)}</strong>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={placeOrderHandler}
+                  className="primary block"
+                  disabled={cart.cartItems.length === 0}
+                >
+                  Place Order
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
