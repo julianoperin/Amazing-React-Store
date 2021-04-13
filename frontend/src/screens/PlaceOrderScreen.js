@@ -3,7 +3,8 @@ import CheckoutSteps from "../components/CheckoutSteps";
 import { cartReducer } from "../reducers/cartReducers";
 import { Link } from "react-router-dom";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { createOrder } from "../actions/orderActions";
 
 const PlaceOrderScreen = (props) => {
   const cart = useSelector((state) => state.cart);
@@ -21,8 +22,10 @@ const PlaceOrderScreen = (props) => {
   cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
   cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
+
+  const dispatch = useDispatch();
   const placeOrderHandler = () => {
-    // TODO: dispatch place order action
+    dispatch(createOrder({ ...cart, orderItems: cartItems }));
   };
 
   return (
