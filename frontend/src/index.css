@@ -158,6 +158,11 @@ img.large {
   background-color: #f5b4b4;
 }
 
+.alert-success {
+  color: #20a020;
+  background-color: #eeffb4;
+}
+
 /* Product Screen */
 
 .row .top {
