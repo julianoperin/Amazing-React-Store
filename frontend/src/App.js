@@ -4,6 +4,8 @@ import ProductScreen from "./screens/ProductScreen";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import CartScreen from "./screens/CartScreen";
 
+import PrivateRoute from "./components/PrivateRoute";
+
 //! Redux
 import { useSelector, useDispatch } from "react-redux";
 import SigninScreen from "./screens/SigninScreen";
@@ -80,7 +82,7 @@ const App = () => {
           <Route path="/placeorder" component={PlaceOrderScreen} />
           <Route path="/order/:id" component={OrderScreen} />
           <Route path="/orderhistory" component={OrderHistoryScreen} />
-          <Route path="/profile" component={ProfileScreen} />
+          <PrivateRoute path="/profile" component={ProfileScreen} />
         </main>
         <footer className="row center">All right reserved</footer>
       </div>
