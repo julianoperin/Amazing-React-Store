@@ -50,9 +50,14 @@ const App = () => {
                   Hello, {userInfo.name} <i className="fa fa-caret-down"></i>
                 </Link>
                 <ul className="dropdown-content">
-                  <Link to="#signout" onClick={signoutHandler}>
-                    Sign Out
-                  </Link>
+                  <li>
+                    <Link to="/orderhistory">Order History</Link>
+                  </li>
+                  <li>
+                    <Link to="#signout" onClick={signoutHandler}>
+                      Sign Out
+                    </Link>
+                  </li>
                 </ul>
               </div>
             ) : (
@@ -62,15 +67,15 @@ const App = () => {
         </header>
         <main>
           <Route exact path="/" component={HomeScreen} />
-          <Route exact path="/product/:id" component={ProductScreen} />
-          <Route exact path="/cart/:id?" component={CartScreen} />
-          <Route exact path="/signin" component={SigninScreen} />
-          <Route exact path="/register" component={RegisterScreen} />
-          <Route exact path="/shipping" component={ShippingAddressScreen} />
-          <Route exact path="/payment" component={PaymentMethodScreen} />
-          <Route exact path="/placeorder" component={PlaceOrderScreen} />
-          <Route exact path="/order/:id" component={OrderScreen} />
-          <Route exact path="/orderminelist" component={OrderHistoryScreen} />
+          <Route path="/product/:id" component={ProductScreen} />
+          <Route path="/cart/:id?" component={CartScreen} />
+          <Route path="/signin" component={SigninScreen} />
+          <Route path="/register" component={RegisterScreen} />
+          <Route path="/shipping" component={ShippingAddressScreen} />
+          <Route path="/payment" component={PaymentMethodScreen} />
+          <Route path="/placeorder" component={PlaceOrderScreen} />
+          <Route path="/order/:id" component={OrderScreen} />
+          <Route path="/orderhistory" component={OrderHistoryScreen} />
         </main>
         <footer className="row center">All right reserved</footer>
       </div>

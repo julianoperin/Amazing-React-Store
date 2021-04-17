@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 
 //! React Redux
 import { useSelector, useDispatch } from "react-redux";
+import { listOrderMine } from "../actions/orderActions";
 
 const OrderHistoryScreen = (props) => {
   const orderMineList = useSelector((state) => state.orderMineList);
   const { orders, loading, error } = orderMineList;
-  console.log(orderMineList);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(listOrderMine());
+  }, [dispatch]);
+
   return (
     <div>
       <h1>Order History</h1>
@@ -28,7 +35,7 @@ const OrderHistoryScreen = (props) => {
               <th>ACTIONS</th>
             </tr>
           </thead>
-          <dbody>
+          <tbody>
             {orders.map((order) => (
               <tr key={order._id}>
                 <td>{order._id}</td>
@@ -46,12 +53,12 @@ const OrderHistoryScreen = (props) => {
                     className="small"
                     onClick={() => props.history.push(`/order/${order._id}`)}
                   >
-                    Delete
+                    Details
                   </button>
                 </td>
               </tr>
             ))}
-          </dbody>
+          </tbody>
         </table>
       )}
     </div>
