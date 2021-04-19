@@ -3,6 +3,7 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 
 import { PRODUCT_CREATE_RESET } from "../constant/productConstants";
+import { PRODUCT_DELETE_RESET } from "../constant/productConstants";
 
 //! Redux
 import { useDispatch, useSelector } from "react-redux";
@@ -31,7 +32,6 @@ const ProductListScreen = (props) => {
     loading: loadingDelete,
     error: errorDelete,
     success: successDelete,
-    product: DeletedProduct,
   } = productDelete;
 
   const dispatch = useDispatch();
@@ -41,12 +41,15 @@ const ProductListScreen = (props) => {
       dispatch({ type: PRODUCT_CREATE_RESET });
       props.history.push(`/product/${createdProduct._id}/edit`);
     }
+    if (successDelete) {
+      dispatch({ type: PRODUCT_DELETE_RESET });
+    }
     dispatch(listProducts());
   }, [createdProduct, dispatch, props.history, successCreate, successDelete]);
 
   const deleteHandler = (product) => {
-    //TODO: dispatch action
-    dispatch(deleteProduct(product._id));
+    if (window.confirm("Are you sure you want to delete this product?"))
+      dispatch(deleteProduct(product._id));
   };
 
   const createHandler = () => {
@@ -62,7 +65,7 @@ const ProductListScreen = (props) => {
         </button>
       </div>
       {loadingDelete && <LoadingBox></LoadingBox>}
-      {errorDelete && <MessageBox variant="danger"></MessageBox>}
+      {errorDelete && <MessageBox variant="danger">{errorDelete}</MessageBox>}
       {loadingCreate && <LoadingBox></LoadingBox>}
       {errorCreate && <MessageBox variant="danger">{errorCreate}</MessageBox>}
       {loading ? (
