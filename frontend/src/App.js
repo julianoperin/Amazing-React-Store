@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import CartScreen from "./screens/CartScreen";
 
 import PrivateRoute from "./components/PrivateRoute";
+import AdminRoute from "./components/AdminRoute";
 
 //! Redux
 import { useSelector, useDispatch } from "react-redux";
@@ -17,6 +18,7 @@ import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
 import OrderHistoryScreen from "./screens/OrderHistoryScreen";
 import ProfileScreen from "./screens/ProfileScreen";
+import ProductListScreen from "./screens/ProductListScreen";
 
 const App = () => {
   const cart = useSelector((state) => state.cart);
@@ -104,6 +106,7 @@ const App = () => {
           <Route path="/order/:id" component={OrderScreen} />
           <Route path="/orderhistory" component={OrderHistoryScreen} />
           <PrivateRoute path="/profile" component={ProfileScreen} />
+          <AdminRoute path="/productlist" component={ProductListScreen} />
         </main>
         <footer className="row center">All right reserved</footer>
       </div>
