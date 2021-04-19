@@ -6,12 +6,17 @@ import { PRODUCT_CREATE_RESET } from "../constant/productConstants";
 
 //! Redux
 import { useDispatch, useSelector } from "react-redux";
-import { createProduct, listProducts } from "../actions/productActions";
+import {
+  createProduct,
+  deleteProduct,
+  listProducts,
+} from "../actions/productActions";
 
 const ProductListScreen = (props) => {
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
 
+  //! Product Create
   const productCreate = useSelector((state) => state.productCreate);
   const {
     loading: loadingCreate,
@@ -19,6 +24,15 @@ const ProductListScreen = (props) => {
     success: successCreate,
     product: createdProduct,
   } = productCreate;
+
+  //! Product Delete
+  const productDelete = useSelector((state) => state.productDelete);
+  const {
+    loading: loadingDelete,
+    error: errorDelete,
+    success: successDelete,
+    product: DeletedProduct,
+  } = productDelete;
 
   const dispatch = useDispatch();
 
@@ -28,10 +42,11 @@ const ProductListScreen = (props) => {
       props.history.push(`/product/${createdProduct._id}/edit`);
     }
     dispatch(listProducts());
-  }, [createdProduct, dispatch, props.history, successCreate]);
+  }, [createdProduct, dispatch, props.history, successCreate, successDelete]);
 
-  const deleteHandler = () => {
+  const deleteHandler = (product) => {
     //TODO: dispatch action
+    dispatch(deleteProduct(product._id));
   };
 
   const createHandler = () => {
@@ -46,6 +61,8 @@ const ProductListScreen = (props) => {
           Create Product
         </button>
       </div>
+      {loadingDelete && <LoadingBox></LoadingBox>}
+      {errorDelete && <MessageBox variant="danger"></MessageBox>}
       {loadingCreate && <LoadingBox></LoadingBox>}
       {errorCreate && <MessageBox variant="danger">{errorCreate}</MessageBox>}
       {loading ? (
