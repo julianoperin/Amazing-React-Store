@@ -2,24 +2,52 @@ import React, { useEffect } from "react";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 
+import { PRODUCT_CREATE_RESET } from "../constant/productConstants";
+
 //! Redux
 import { useDispatch, useSelector } from "react-redux";
+import { createProduct, listProducts } from "../actions/productActions";
 
 const ProductListScreen = (props) => {
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
+
+  const productCreate = useSelector((state) => state.productCreate);
+  const {
+    loading: loadingCreate,
+    error: errorCreate,
+    success: successCreate,
+    product: createdProduct,
+  } = productCreate;
+
   const dispatch = useDispatch();
+
   useEffect(() => {
-    // dispatch(listProducts());
-  }, [dispatch]);
+    if (successCreate) {
+      dispatch({ type: PRODUCT_CREATE_RESET });
+      props.history.push(`/product/${createdProduct._id}/edit`);
+    }
+    dispatch(listProducts());
+  }, [createdProduct, dispatch, props.history, successCreate]);
 
   const deleteHandler = () => {
     //TODO: dispatch action
   };
 
+  const createHandler = () => {
+    dispatch(createProduct());
+  };
+
   return (
     <div>
-      <h1>products</h1>
+      <div className="row">
+        <h1>Products</h1>
+        <button type="button" className="primary" onClick={createHandler}>
+          Create Product
+        </button>
+      </div>
+      {loadingCreate && <LoadingBox></LoadingBox>}
+      {errorCreate && <MessageBox variant="danger">{errorCreate}</MessageBox>}
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
@@ -28,6 +56,7 @@ const ProductListScreen = (props) => {
         <table className="table">
           <thead>
             <tr>
+              {/* <th>Image</th> */}
               <th>Id</th>
               <th>Name</th>
               <th>Price</th>
@@ -39,6 +68,13 @@ const ProductListScreen = (props) => {
           <tbody>
             {products.map((product) => (
               <tr key={product._id}>
+                {/* <td>
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="small"
+                  />
+                </td> */}
                 <td>{product._id}</td>
                 <td>{product.name}</td>
                 <td>{product.price}</td>

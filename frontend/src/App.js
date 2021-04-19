@@ -96,7 +96,7 @@ const App = () => {
         </header>
         <main>
           <Route exact path="/" component={HomeScreen} />
-          <Route path="/product/:id" component={ProductScreen} />
+          <Route exact path="/product/:id" component={ProductScreen} />
           <Route path="/cart/:id?" component={CartScreen} />
           <Route path="/signin" component={SigninScreen} />
           <Route path="/register" component={RegisterScreen} />
