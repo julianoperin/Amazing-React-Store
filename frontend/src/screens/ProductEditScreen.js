@@ -64,25 +64,25 @@ export default function ProductEditScreen(props) {
 
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
-  //   const uploadFileHandler = async (e) => {
-  //     const file = e.target.files[0];
-  //     const bodyFormData = new FormData();
-  //     bodyFormData.append("image", file);
-  //     setLoadingUpload(true);
-  //     try {
-  //       const { data } = await Axios.post("/api/uploads", bodyFormData, {
-  //         headers: {
-  //           "Content-Type": "multipart/form-data",
-  //           Authorization: `Bearer ${userInfo.token}`,
-  //         },
-  //       });
-  //       setImage(data);
-  //       setLoadingUpload(false);
-  //     } catch (error) {
-  //       setErrorUpload(error.message);
-  //       setLoadingUpload(false);
-  //     }
-  //   };
+  const uploadFileHandler = async (e) => {
+    const file = e.target.files[0];
+    const bodyFormData = new FormData();
+    bodyFormData.append("image", file);
+    setLoadingUpload(true);
+    try {
+      const { data } = await Axios.post("/api/uploads", bodyFormData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      });
+      setImage(data);
+      setLoadingUpload(false);
+    } catch (error) {
+      setErrorUpload(error.message);
+      setLoadingUpload(false);
+    }
+  };
 
   return (
     <div>
@@ -128,7 +128,7 @@ export default function ProductEditScreen(props) {
                 onChange={(e) => setImage(e.target.value)}
               ></input>
             </div>
-            {/* <div>
+            <div>
               <label htmlFor="imageFile">Image File</label>
               <input
                 type="file"
@@ -140,7 +140,7 @@ export default function ProductEditScreen(props) {
               {errorUpload && (
                 <MessageBox variant="danger">{errorUpload}</MessageBox>
               )}
-            </div> */}
+            </div>
             <div>
               <label htmlFor="category">Category</label>
               <input
