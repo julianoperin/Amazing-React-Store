@@ -19,6 +19,7 @@ import OrderScreen from "./screens/OrderScreen";
 import OrderHistoryScreen from "./screens/OrderHistoryScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import ProductListScreen from "./screens/ProductListScreen";
+import ProductEditScreen from "./screens/ProductEditScreen";
 
 const App = () => {
   const cart = useSelector((state) => state.cart);
@@ -43,11 +44,12 @@ const App = () => {
             </Link>
           </div>
           <div>
-            <Link to="/cart">
-              Cart
-              {cartItems.length > 0 && (
-                <span className="badge">{cartItems.length}</span>
-              )}
+            <Link to="/cart" className="cart">
+              <i class="fas fa-shopping-cart">
+                {cartItems.length > 0 && (
+                  <span className="badge">{cartItems.length}</span>
+                )}
+              </i>
             </Link>
             {userInfo ? (
               <div className="dropdown">
@@ -97,6 +99,7 @@ const App = () => {
         <main>
           <Route exact path="/" component={HomeScreen} />
           <Route exact path="/product/:id" component={ProductScreen} />
+          <Route exact path="/product/:id/edit" component={ProductEditScreen} />
           <Route path="/cart/:id?" component={CartScreen} />
           <Route path="/signin" component={SigninScreen} />
           <Route path="/register" component={RegisterScreen} />
