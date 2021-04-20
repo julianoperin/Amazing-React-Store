@@ -76,7 +76,7 @@ const ProductListScreen = (props) => {
         <table className="table">
           <thead>
             <tr>
-              {/* <th>Image</th> */}
+              <th>Image</th>
               <th>Id</th>
               <th>Name</th>
               <th>Price</th>
@@ -88,16 +88,16 @@ const ProductListScreen = (props) => {
           <tbody>
             {products.map((product) => (
               <tr key={product._id}>
-                {/* <td>
+                <td>
                   <img
                     src={product.image}
                     alt={product.name}
                     className="small"
                   />
-                </td> */}
+                </td>
                 <td>{product._id}</td>
                 <td>{product.name}</td>
-                <td>{product.price}</td>
+                <td>${product.price}</td>
                 <td>{product.category}</td>
                 <td>{product.brand}</td>
                 <td>

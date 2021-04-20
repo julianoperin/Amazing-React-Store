@@ -19,6 +19,7 @@ import {
 import {
   orderCreateReducer,
   orderDetailsReducer,
+  orderListReducer,
   orderMineListReducer,
   orderPayReducer,
 } from "./reducers/orderReducers";
@@ -45,17 +46,23 @@ const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
   cart: cartReducer,
+  //! Auth
   userSignin: userSigninReducer,
   userRegister: userRegisterReducer,
+  //! Orders
   orderCreate: orderCreateReducer,
   orderDetails: orderDetailsReducer,
   orderPay: orderPayReducer,
   orderMineList: orderMineListReducer,
+  //! User
   userDetails: userDetailsReducer,
   userUpdateProfile: userUpdateProfileReducer,
+  //! Products
   productCreate: productCreateReducer,
   productUpdate: productUpdateReducer,
   productDelete: productDeleteReducer,
+  //! Orders
+  orderList: orderListReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
