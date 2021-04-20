@@ -67,7 +67,7 @@ a.brand {
 }
 
 .cart {
-  margin-right: 1.2rem;
+  margin-right: 2.2rem;
 }
 .fa-shopping-cart {
   position: absolute;
@@ -281,6 +281,11 @@ button:hover {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.dropdown:hover i {
+  transform: rotate(180deg);
+  transition: all 0.3s ease-in-out;
 }
 
 /* ! Checkout steps */
