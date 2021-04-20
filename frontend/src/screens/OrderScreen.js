@@ -206,7 +206,7 @@ const OrderScreen = (props) => {
                   )}
                 </li>
               )}
-              {userInfo.isAdmin && order.isPaid && !order.isDelivered && (
+              {order.isPaid && !order.isDelivered && userInfo.isAdmin && (
                 <li>
                   {loadingDeliver && <LoadingBox></LoadingBox>}
                   {errorDeliver && (

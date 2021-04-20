@@ -159,35 +159,42 @@ img.large {
 /*! HomeScreen */
 .success {
   color: #20a020;
+  margin: 1rem 0 !important;
 }
 
 .danger {
   color: #a02020;
+  margin: 1rem 0 !important;
 }
 /* ! ALERT */
 .loading {
   display: Block;
+  margin: 0 auto;
 }
 
 .alert {
   padding: 1rem;
   border: 0.1rem solid transparent;
   border-radius: 0.5rem;
+  margin: 1rem 0 !important;
 }
 
 .alert-info {
   color: #2020a0;
   background-color: #e0e0ff;
+  margin: 1rem 0 !important;
 }
 
 .alert-danger {
   color: #a02020;
   background-color: #f5b4b4;
+  margin: 1rem 0 !important;
 }
 
 .alert-success {
   color: #20a020;
   background-color: #eeffb4;
+  margin: 1rem 0 !important;
 }
 
 ul {
