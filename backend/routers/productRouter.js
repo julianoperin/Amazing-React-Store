@@ -10,6 +10,7 @@ const productRouter = express.Router();
 productRouter.get(
   "/",
   expressAsyncHandler(async (req, res) => {
+    //! Check if the seller is true and load the only the products from the seller
     const seller = req.query.seller || "";
     const sellerFilter = seller ? { seller } : {};
 
