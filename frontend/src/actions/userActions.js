@@ -23,6 +23,9 @@ import {
   USER_UPDATE_REQUEST,
   USER_UPDATE_SUCCESS,
   USER_UPDATE_FAIL,
+  USER_TOPSELLERS_LIST_FAIL,
+  USER_TOPSELLERS_LIST_SUCCESS,
+  USER_TOPSELLERS_LIST_REQUEST,
 } from "../constant/userConstants";
 
 //! Register
@@ -185,5 +188,20 @@ export const updateUser = (user) => async (dispatch, getState) => {
         ? error.response.data.message
         : error.message;
     dispatch({ type: USER_UPDATE_FAIL, payload: message });
+  }
+};
+
+//! TopSellers
+export const listTopSellers = () => async (dispatch, getState) => {
+  dispatch({ type: USER_TOPSELLERS_LIST_REQUEST });
+  try {
+    const { data } = await Axios.get("/top-sellers");
+    dispatch({ type: USER_TOPSELLERS_LIST_SUCCESS, payload: data });
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({ type: USER_TOPSELLERS_LIST_FAIL, payload: message });
   }
 };
