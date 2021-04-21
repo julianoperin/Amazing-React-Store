@@ -1,16 +1,16 @@
 import express from "express";
 import expressAsyncHandler from "express-async-handler";
 import Order from "../models/orderModel.js";
-import { isAdmin, isAuth } from "../utils.js";
+import { isAdmin, isAuth, isSellerOrAdmin } from "../utils.js";
 
 const orderRouter = express.Router();
 
 orderRouter.get(
   "/",
   isAuth,
-  isAdmin,
+  isSellerOrAdmin,
   expressAsyncHandler(async (req, res) => {
-    //! Check if the seller is true and load the only the products from the seller
+    //! Check if the seller is true and load only the orders from the seller
     const seller = req.query.seller || "";
     const sellerFilter = seller ? { seller } : {};
 
