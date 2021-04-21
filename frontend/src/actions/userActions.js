@@ -195,7 +195,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
 export const listTopSellers = () => async (dispatch, getState) => {
   dispatch({ type: USER_TOPSELLERS_LIST_REQUEST });
   try {
-    const { data } = await Axios.get("/top-sellers");
+    const { data } = await Axios.get("/api/users/top-sellers");
     dispatch({ type: USER_TOPSELLERS_LIST_SUCCESS, payload: data });
   } catch (error) {
     const message =

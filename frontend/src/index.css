@@ -340,3 +340,7 @@ button:hover {
 .p-1 {
   padding: 1rem;
 }
+
+.carousel .slide img {
+  max-width: 30rem;
+}

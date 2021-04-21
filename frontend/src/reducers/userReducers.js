@@ -139,20 +139,14 @@ export const userEditReducer = (state = {}, action) => {
 };
 
 //! GET Top Sellers
-export const topSellersReducer = (state = {}, action) => {
+export const userTopSellersListReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_TOPSELLERS_LIST_REQUEST:
       return { loading: true };
     case USER_TOPSELLERS_LIST_SUCCESS:
-      return {
-        loading: false,
-        success: true,
-        topSellersProducts: action.payload,
-      };
+      return { loading: false, users: action.payload };
     case USER_TOPSELLERS_LIST_FAIL:
       return { loading: false, error: action.payload };
-    case USER_TOPSELLERS_LIST_RESET:
-      return {};
     default:
       return state;
   }
