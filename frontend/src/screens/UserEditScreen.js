@@ -81,7 +81,7 @@ export default function UserEditScreen(props) {
                 onChange={(e) => setEmail(e.target.value)}
               ></input>
             </div>
-            <div className="checks">
+            <div className="check-option">
               <input
                 id="isSeller"
                 type="checkbox"
@@ -90,7 +90,7 @@ export default function UserEditScreen(props) {
               ></input>
               <label htmlFor="isSeller">Is Seller</label>
             </div>
-            <div className="checks">
+            <div className="check-option">
               <input
                 id="isAdmin"
                 type="checkbox"

@@ -59,7 +59,7 @@ const App = () => {
             {userInfo && userInfo.isSeller && (
               <div className="dropdown">
                 <Link to="#seller">
-                  Admin <i className="fa fa-caret-down"></i>
+                  Seller <i className="fa fa-caret-down"></i>
                 </Link>
                 <ul className="dropdown-content">
                   <li>
@@ -132,8 +132,8 @@ const App = () => {
           <Route path="/order/:id" component={OrderScreen} />
           <Route path="/orderhistory" component={OrderHistoryScreen} />
           <PrivateRoute path="/profile" component={ProfileScreen} />
-          <AdminRoute path="/productlist" component={ProductListScreen} />
-          <AdminRoute path="/orderlist" component={OrderListScreen} />
+          <AdminRoute exact path="/productlist" component={ProductListScreen} />
+          <AdminRoute exact path="/orderlist" component={OrderListScreen} />
           <AdminRoute path="/userlist" component={UserListScreen} />
           <AdminRoute path="/user/:id/edit" component={UserEditScreen} />
           <SellerRoute

@@ -13,7 +13,7 @@ const HomeScreen = () => {
   const { products, loading, error } = productList;
 
   useEffect(() => {
-    dispatch(listProducts());
+    dispatch(listProducts({}));
   }, [dispatch]);
 
   return (

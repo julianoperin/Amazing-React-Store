@@ -259,7 +259,7 @@ button:hover {
 
 .form > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: column !important;
   margin-bottom: 1rem;
 }
 
@@ -329,12 +329,10 @@ button:hover {
 
 /*!  checks inputs */
 
-.checks {
-  display: flex;
-  flex-direction: row !important;
-  align-items: center !important;
+/* .check-option {
+  flex-direction: row;
 }
 
-.checks input {
+.check-option input {
   margin-right: 1rem;
-}
+} */

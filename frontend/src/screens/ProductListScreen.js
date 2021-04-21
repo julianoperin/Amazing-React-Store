@@ -14,6 +14,7 @@ import {
 } from "../actions/productActions";
 
 const ProductListScreen = (props) => {
+  const sellerMode = props.match.path.indexOf("seller") >= 0;
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
 
@@ -25,6 +26,9 @@ const ProductListScreen = (props) => {
     success: successCreate,
     product: createdProduct,
   } = productCreate;
+
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
 
   //! Product Delete
   const productDelete = useSelector((state) => state.productDelete);
@@ -44,7 +48,7 @@ const ProductListScreen = (props) => {
     if (successDelete) {
       dispatch({ type: PRODUCT_DELETE_RESET });
     }
-    dispatch(listProducts());
+    dispatch(listProducts({ seller: sellerMode ? userInfo._id : "" }));
   }, [createdProduct, dispatch, props.history, successCreate, successDelete]);
 
   const deleteHandler = (product) => {
