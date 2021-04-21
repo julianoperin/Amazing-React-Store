@@ -326,3 +326,15 @@ button:hover {
 .table button {
   margin: 0 0.2rem;
 }
+
+/*!  checks inputs */
+
+.checks {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center !important;
+}
+
+.checks input {
+  margin-right: 1rem;
+}

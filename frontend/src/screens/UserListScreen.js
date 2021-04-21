@@ -4,8 +4,9 @@ import { deleteUser, listUsers } from "../actions/userActions";
 
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
+import { USER_DETAILS_RESET } from "../constant/userConstants";
 
-function UserListScreen() {
+function UserListScreen(props) {
   const dispatch = useDispatch();
 
   const userList = useSelector((state) => state.userList);
@@ -20,6 +21,7 @@ function UserListScreen() {
 
   useEffect(() => {
     dispatch(listUsers());
+    dispatch({ type: USER_DETAILS_RESET });
   }, [dispatch, successDelete]);
 
   const deleteHandler = (user) => {
@@ -61,7 +63,11 @@ function UserListScreen() {
                 <td>{user.isSeller ? "YES" : "NO"}</td>
                 <td>{user.isAdmin ? "YES" : "NO"}</td>
                 <td>
-                  <button type="button" className="small">
+                  <button
+                    type="button"
+                    className="small"
+                    onClick={() => props.history.push(`/user/${user._id}/edit`)}
+                  >
                     <i class="fas fa-user-edit"></i>
                   </button>
                   <button
