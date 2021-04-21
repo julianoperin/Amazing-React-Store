@@ -10,6 +10,7 @@ const ProfileScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [sellerName, setSellerName] = useState("");
 
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
@@ -101,6 +102,21 @@ const ProfileScreen = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
+            {user.isSeller && (
+              <div>
+                <h2>Seller</h2>
+                <div>
+                  <label htmlFor="sellerName">Seller Name</label>
+                  <input
+                    type="text"
+                    id="sellerName"
+                    placeholder="Enter Seller Name"
+                    value={sellerName}
+                    onChange={(e) => setSellerName(e.target.value)}
+                  />
+                </div>
+              </div>
+            )}
             <div>
               <label />
               <button className="primary" type="submit">

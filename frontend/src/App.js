@@ -4,8 +4,10 @@ import ProductScreen from "./screens/ProductScreen";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import CartScreen from "./screens/CartScreen";
 
+//! Private Routes
 import PrivateRoute from "./components/PrivateRoute";
 import AdminRoute from "./components/AdminRoute";
+import SellerRoute from "./components/AdminRoute";
 
 //! Redux
 import { useSelector, useDispatch } from "react-redux";
@@ -54,6 +56,24 @@ const App = () => {
                 )}
               </i>
             </Link>
+            {userInfo && userInfo.isSeller && (
+              <div className="dropdown">
+                <Link to="#seller">
+                  Admin <i className="fa fa-caret-down"></i>
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li>
+                  <li>
+                    <Link to="/productlist/seller">Products</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderlist/seller">Orders</Link>
+                  </li>
+                </ul>
+              </div>
+            )}
             {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
                 <Link to="#admin">
@@ -116,6 +136,11 @@ const App = () => {
           <AdminRoute path="/orderlist" component={OrderListScreen} />
           <AdminRoute path="/userlist" component={UserListScreen} />
           <AdminRoute path="/user/:id/edit" component={UserEditScreen} />
+          <SellerRoute
+            path="/productlist/seller"
+            component={ProductListScreen}
+          />
+          <SellerRoute path="/orderlist/seller" component={OrderListScreen} />
         </main>
         <footer className="row center">All right reserved</footer>
       </div>
