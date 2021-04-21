@@ -5,7 +5,6 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 
 import { Link } from "react-router-dom";
-import "./ProductScreen.css";
 
 //! Redux
 import { useSelector, useDispatch } from "react-redux";
@@ -63,6 +62,18 @@ const ProductScreen = (props) => {
             <div className="col-1">
               <div className="card card-body">
                 <ul>
+                  <li>
+                    Seller{" "}
+                    <h2>
+                      <Link to={`/seller/${product.seller._id}`}>
+                        {product.seller.seller.name}
+                      </Link>
+                    </h2>
+                    <Rating
+                      rating={product.seller.seller.rating}
+                      numReviews={product.seller.seller.numReviews}
+                    ></Rating>
+                  </li>
                   <li>
                     <div className="row">
                       <div>Status</div>
