@@ -7,17 +7,15 @@ import { isAdmin, isAuth, isSellerOrAdmin } from "../utils.js";
 
 const productRouter = express.Router();
 
+//! Check if the seller is true and load the only the products from the seller
+//! Populate to get the seller name for the seller view, bug fixed
+
 productRouter.get(
   "/",
   expressAsyncHandler(async (req, res) => {
-    //! Check if the seller is true and load the only the products from the seller
     const seller = req.query.seller || "";
     const sellerFilter = seller ? { seller } : {};
-    //! Populate to get the seller name for the seller view, bug fixed
-    const products = await Product.find({ ...sellerFilter }).populate(
-      "seller",
-      "seller.name seller.logo"
-    );
+    const products = await Product.find({ ...sellerFilter });
     res.send(products);
   })
 );

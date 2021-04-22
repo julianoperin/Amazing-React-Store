@@ -7,6 +7,18 @@ import { generateToken, isAuth, isAdmin } from "../utils.js";
 
 const userRouter = express.Router();
 
+//! Get Top Sellers
+// -1 means sort ascending
+userRouter.get(
+  "/top-sellers",
+  expressAsyncHandler(async (req, res) => {
+    const topSellers = await User.find({ isSeller: true })
+      .sort({ "seller.rating": -1 })
+      .limit(3);
+    res.send(topSellers);
+  })
+);
+
 //! Seed
 userRouter.get(
   "/seed",

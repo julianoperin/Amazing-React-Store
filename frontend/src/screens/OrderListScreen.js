@@ -6,32 +6,28 @@ import MessageBox from "../components/MessageBox";
 import { ORDER_DELETE_RESET } from "../constant/orderConstants";
 
 export default function OrderListScreen(props) {
-  const sellerMode = props.match.path.indexOf("seller") >= 0;
+  const sellerMode = props.match.path.indexOf("/seller") >= 0;
   const orderList = useSelector((state) => state.orderList);
   const { loading, error, orders } = orderList;
-
   const orderDelete = useSelector((state) => state.orderDelete);
   const {
     loading: loadingDelete,
     error: errorDelete,
     success: successDelete,
   } = orderDelete;
-  const dispatch = useDispatch();
 
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
-
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch({ type: ORDER_DELETE_RESET });
     dispatch(listOrders({ seller: sellerMode ? userInfo._id : "" }));
   }, [dispatch, sellerMode, successDelete, userInfo._id]);
-
   const deleteHandler = (order) => {
-    if (window.confirm("Are you sure you want to delete?")) {
+    if (window.confirm("Are you sure to delete?")) {
       dispatch(deleteOrder(order._id));
     }
   };
-
   return (
     <div>
       <h1>Orders</h1>
@@ -58,7 +54,7 @@ export default function OrderListScreen(props) {
             {orders.map((order) => (
               <tr key={order._id}>
                 <td>{order._id}</td>
-                <td>{order.user && order.user.name}</td>
+                <td>{order.user.name}</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
                 <td>{order.totalPrice.toFixed(2)}</td>
                 <td>{order.isPaid ? order.paidAt.substring(0, 10) : "No"}</td>

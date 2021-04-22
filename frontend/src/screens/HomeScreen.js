@@ -21,18 +21,17 @@ const HomeScreen = () => {
     dispatch(listTopSellers());
   }, [dispatch]);
 
-  const userTopSellersList = useSelector((state) => state.userTopSellersList);
-  const {
-    loading: loadingSellers,
-    error: errorSellers,
-    users: sellers,
-  } = userTopSellersList;
-  console.log(sellers);
+  // const userTopSellersList = useSelector((state) => state.userTopSellersList);
+  // const {
+  //   loading: loadingSellers,
+  //   error: errorSellers,
+  //   users: sellers,
+  // } = userTopSellersList;
 
   return (
     <div>
       <h2>Top Sellers</h2>
-      {loadingSellers ? (
+      {/* {loadingSellers ? (
         <LoadingBox></LoadingBox>
       ) : errorSellers ? (
         <MessageBox variant="danger">{errorSellers}</MessageBox>
@@ -50,8 +49,7 @@ const HomeScreen = () => {
             ))}
           </Carousel>
         </>
-      )}
-
+      )} */}
       <h2>Featured Products</h2>
       {loading ? (
         <LoadingBox></LoadingBox>
@@ -59,17 +57,11 @@ const HomeScreen = () => {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <>
-          {sellers.length === 0 && (
-            <MessageBox>No Top Sellers Found</MessageBox>
-          )}
+          {products.length === 0 && <MessageBox>No Product Found</MessageBox>}
           <div className="row center">
-            {products.length > 0 ? (
-              products.map((product) => (
-                <Product key={product._id} product={product} />
-              ))
-            ) : (
-              <h2>No Products Found</h2>
-            )}
+            {products.map((product) => (
+              <Product key={product._id} product={product}></Product>
+            ))}
           </div>
         </>
       )}
