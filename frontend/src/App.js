@@ -7,7 +7,8 @@ import CartScreen from "./screens/CartScreen";
 //! Private Routes
 import PrivateRoute from "./components/PrivateRoute";
 import AdminRoute from "./components/AdminRoute";
-import SellerRoute from "./components/AdminRoute";
+import SellerRoute from "./components/SellerRoute";
+import SearchBox from "./components/SearchBox";
 
 //! Redux
 import { useSelector, useDispatch } from "react-redux";
@@ -48,6 +49,11 @@ const App = () => {
             <Link className="brand" to="/">
               Amazing
             </Link>
+          </div>
+          <div>
+            <Route
+              render={(history) => <SearchBox history={history}></SearchBox>}
+            ></Route>
           </div>
           <div>
             <Link to="/cart" className="cart">
