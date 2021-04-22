@@ -17,6 +17,9 @@ import {
   PRODUCT_DELETE_FAIL,
   PRODUCT_DELETE_SUCCESS,
   PRODUCT_DELETE_RESET,
+  PRODUCT_CATEGORY_REQUEST,
+  PRODUCT_CATEGORY_SUCCESS,
+  PRODUCT_CATEGORY_FAIL,
 } from "../constant/productConstants";
 
 //! Products should be an empty array, otherwise wont show products on the homescreen if no products
@@ -32,6 +35,23 @@ export const productListReducer = (
     case PRODUCT_LIST_SUCCESS:
       return { loading: false, products: action.payload };
     case PRODUCT_LIST_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+//! Categories
+export const productCategoryListReducer = (
+  state = { loading: true, products: [] },
+  action
+) => {
+  switch (action.type) {
+    case PRODUCT_CATEGORY_REQUEST:
+      return { loading: true };
+    case PRODUCT_CATEGORY_SUCCESS:
+      return { loading: false, categories: action.payload };
+    case PRODUCT_CATEGORY_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;
