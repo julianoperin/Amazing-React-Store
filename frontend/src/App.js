@@ -27,6 +27,7 @@ import OrderListScreen from "./screens/OrderListScreen";
 import UserListScreen from "./screens/UserListScreen";
 import UserEditScreen from "./screens/UserEditScreen";
 import SellerScreen from "./screens/SellerScreen";
+import SearchScreen from "./screens/SearchScreen";
 
 const App = () => {
   const cart = useSelector((state) => state.cart);
@@ -52,7 +53,9 @@ const App = () => {
           </div>
           <div>
             <Route
-              render={(history) => <SearchBox history={history}></SearchBox>}
+              render={({ history }) => (
+                <SearchBox history={history}></SearchBox>
+              )}
             ></Route>
           </div>
           <div>
@@ -131,6 +134,8 @@ const App = () => {
           <Route exact path="/" component={HomeScreen} />
           <Route exact path="/product/:id" component={ProductScreen} />
           <Route exact path="/product/:id/edit" component={ProductEditScreen} />
+          <Route exact path="/search/name/:name?" component={SearchScreen} />
+
           <Route path="/cart/:id?" component={CartScreen} />
           <Route path="/signin" component={SigninScreen} />
           <Route path="/register" component={RegisterScreen} />

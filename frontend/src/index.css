@@ -344,3 +344,31 @@ button:hover {
 .carousel .slide img {
   max-width: 30rem;
 }
+
+/*! Search */
+
+/* .search {
+} */
+
+.search button {
+  /* width: 5rem; */
+  border-radius: 0 0.5rem 0.5rem 0;
+  border-right: none;
+  margin-right: 0.5rem;
+}
+
+.search button:hover {
+  transform: scale(1.05);
+}
+
+.search input {
+  /* width: 30rem; */
+  border-radius: 0.5rem 0 0 0.5rem;
+  border-right: none;
+  margin-left: 0.5rem;
+}
+
+button:focus,
+input:focus {
+  outline: none;
+}
