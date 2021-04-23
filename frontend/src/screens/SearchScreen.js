@@ -61,29 +61,42 @@ const SearchScreen = (props) => {
 
   return (
     <div>
-      <div className="row">
+      <div className="row results-search">
         {loading ? (
           <LoadingBox></LoadingBox>
         ) : error ? (
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
-          <div>{products.length} Results</div>
+          <div>
+            {" "}
+            <h3>Total Results For This Search "{products.length}"</h3>
+          </div>
         )}
       </div>
-      {/* //! Sort Select Box */}
-      <div>
-        Sort by{" "}
-        <select
-          value={order}
-          onChange={(e) => {
-            props.history.push(getFilterUrl({ order: e.target.value }));
-          }}
-        >
-          <option value="newest">Newest Arrivals</option>
-          <option value="lowest">Price: Low to High</option>
-          <option value="highest">Price: High to Low</option>
-          <option value="toprated">Avg. Customer Reviews</option>
-        </select>
+      {/* //! Sort Select  */}
+      <div className="sort-reset">
+        <button>
+          <Link
+            // className="primary"
+            to="/search/category/all/name/all/min/0/max/0/rating/0/order/newest"
+          >
+            Reset Filters
+          </Link>
+        </button>
+        <div>
+          Sort by{" "}
+          <select
+            value={order}
+            onChange={(e) => {
+              props.history.push(getFilterUrl({ order: e.target.value }));
+            }}
+          >
+            <option value="newest">Newest Arrivals</option>
+            <option value="lowest">Price: Low to High</option>
+            <option value="highest">Price: High to Low</option>
+            <option value="toprated">Avg. Customer Reviews</option>
+          </select>
+        </div>
       </div>
       {/* //! Department */}
       <div className="row top">

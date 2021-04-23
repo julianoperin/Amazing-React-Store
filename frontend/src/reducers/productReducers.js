@@ -20,6 +20,10 @@ import {
   PRODUCT_CATEGORY_REQUEST,
   PRODUCT_CATEGORY_SUCCESS,
   PRODUCT_CATEGORY_FAIL,
+  PRODUCT_REVIEW_CREATE_RESET,
+  PRODUCT_REVIEW_CREATE_FAIL,
+  PRODUCT_REVIEW_CREATE_SUCCESS,
+  PRODUCT_REVIEW_CREATE_REQUEST,
 } from "../constant/productConstants";
 
 //! Products should be an empty array, otherwise wont show products on the homescreen if no products
@@ -114,6 +118,22 @@ export const productDeleteReducer = (state = {}, action) => {
     case PRODUCT_DELETE_FAIL:
       return { loading: false, error: action.payload };
     case PRODUCT_DELETE_RESET:
+      return {};
+    default:
+      return state;
+  }
+};
+
+//! Create Comment
+export const productReviewCreateReducer = (state = {}, action) => {
+  switch (action.type) {
+    case PRODUCT_REVIEW_CREATE_REQUEST:
+      return { loading: true };
+    case PRODUCT_REVIEW_CREATE_SUCCESS:
+      return { loading: false, success: true, review: action.payload };
+    case PRODUCT_REVIEW_CREATE_FAIL:
+      return { loading: false, error: action.payload };
+    case PRODUCT_REVIEW_CREATE_RESET:
       return {};
     default:
       return state;

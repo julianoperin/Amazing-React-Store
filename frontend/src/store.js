@@ -8,6 +8,7 @@ import {
   productUpdateReducer,
   productDeleteReducer,
   productCategoryListReducer,
+  productReviewCreateReducer,
 } from "./reducers/productReducers";
 
 import { cartReducer } from "./reducers/cartReducers";
@@ -78,6 +79,7 @@ const reducer = combineReducers({
   userUpdate: userEditReducer,
   userTopSellersList: userTopSellersListReducer,
   productCategoryList: productCategoryListReducer,
+  productReviewCreate: productReviewCreateReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

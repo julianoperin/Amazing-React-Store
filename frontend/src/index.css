@@ -1,8 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap");
+
+/* font-family: 'Lato', sans-serif;
+font-family: 'Roboto', sans-serif; */
+
 html {
   font-size: 62.5%; /* 16px x 62.5 = 10px = 1rem */
   box-sizing: border-box;
 }
 body {
+  font-family: "Roboto", sans-serif !important;
   margin: 0;
   height: 100vh;
   font-size: 1.6rem;
@@ -373,8 +379,12 @@ input:focus {
   outline: none;
 }
 
-.active {
-  font: bold;
+.col-1 ul li a {
+  color: #000 !important;
+}
+
+main.active {
+  color: red !important;
 }
 
 /* Aside */
@@ -415,4 +425,22 @@ aside li {
 }
 button.close-sidebar {
   padding: 0.3rem 0.8rem;
+}
+
+/* sort reset */
+.sort-reset {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0.6rem;
+}
+
+.sort-reset button {
+  /* flex: 1; */
+  max-width: 15rem;
+  margin-left: 0.55rem;
+}
+
+.results-search {
+  margin-left: 3.5rem;
 }
