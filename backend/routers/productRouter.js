@@ -16,13 +16,20 @@ productRouter.get(
     const category = req.query.category || "";
     const name = req.query.name || "";
     const seller = req.query.seller || "";
+    const min =
+      req.query.min && Number(req.query.min) !== 0 ? Number(req.query.min) : 0;
+    const max =
+      req.query.max && Number(req.query.max) !== 0 ? Number(req.query.max) : 0;
     const nameFilter = name ? { name: { $regex: name, $options: "i" } } : {};
     const sellerFilter = seller ? { seller } : {};
     const categoryFilter = category ? { category } : {};
+    const priceFilter = min && max ? { price: { $gte: min, $lte: max } } : {};
+
     const products = await Product.find({
       ...sellerFilter,
       ...nameFilter,
       ...categoryFilter,
+      ...priceFilter,
     }).populate("seller", "seller.name seller.logo");
     res.send(products);
   })

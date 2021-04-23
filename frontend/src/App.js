@@ -198,6 +198,11 @@ const App = () => {
             path="/search/category/:category/name/:name"
             component={SearchScreen}
           />
+          <Route
+            exact
+            path="/search/category/:category/name/:name/min/:min/max/:max"
+            component={SearchScreen}
+          />
 
           <Route path="/cart/:id?" component={CartScreen} />
           <Route path="/signin" component={SigninScreen} />

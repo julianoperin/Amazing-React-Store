@@ -6,13 +6,14 @@ import { listProducts } from "../actions/productActions";
 import MessageBox from "../components/MessageBox";
 import LoadingBox from "../components/LoadingBox";
 import Product from "../components/Product";
+import { prices, rating } from "../utils";
 
 //! Redux
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 const SearchScreen = (props) => {
-  const { name = "all", category = "" } = useParams();
+  const { name = "all", category = "", min = 0, max = 1000000 } = useParams();
 
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
@@ -28,7 +29,9 @@ const SearchScreen = (props) => {
   const getFilterUrl = (filter) => {
     const filterCategory = filter.category || category;
     const filterName = filter.name || name;
-    return `/search/category/${filterCategory}/name/${filterName}`;
+    const filterMin = filter.min ? filter.min : filter.min === 0 ? 0 : min;
+    const filterMax = filter.max || max;
+    return `/search/category/${filterCategory}/name/${filterName}/min/${filterMin}/max/${filterMax}`;
   };
 
   useEffect(() => {
@@ -36,6 +39,8 @@ const SearchScreen = (props) => {
       listProducts({
         name: name !== "all" ? name : "",
         category: category !== "all" ? category : "",
+        min,
+        max,
       })
     );
   }, [dispatch, name]);
@@ -53,24 +58,43 @@ const SearchScreen = (props) => {
       <div className="row top">
         <div className="col-1">
           <h3>Department</h3>
-          {loadingCategory ? (
-            <LoadingBox></LoadingBox>
-          ) : errorCategory ? (
-            <MessageBox variant="danger">{errorCategory}</MessageBox>
-          ) : (
+          <div>
+            {loadingCategory ? (
+              <LoadingBox></LoadingBox>
+            ) : errorCategory ? (
+              <MessageBox variant="danger">{errorCategory}</MessageBox>
+            ) : (
+              <ul>
+                {categories.map((c) => (
+                  <li key={c}>
+                    <Link
+                      className={c === category ? "active" : ""}
+                      to={getFilterUrl({ category: c })}
+                    >
+                      {c}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+          <div>
+            <h3>Price</h3>
             <ul>
-              {categories.map((c) => (
-                <li key={c}>
+              {prices.map((p) => (
+                <li key={p.name}>
                   <Link
-                    className={c === category ? "active" : ""}
-                    to={getFilterUrl({ category: c })}
+                    to={getFilterUrl({ min: p.min, max: p.max })}
+                    className={
+                      `${p.min}-${p.max}` === `${min}-${max}` ? "active" : ""
+                    }
                   >
-                    {c}
+                    {p.name}
                   </Link>
                 </li>
               ))}
             </ul>
-          )}
+          </div>
         </div>
         <div className="col-3">
           {loading ? (

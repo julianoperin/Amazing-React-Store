@@ -373,6 +373,10 @@ input:focus {
   outline: none;
 }
 
+.active {
+  font: bold;
+}
+
 /* Aside */
 aside {
   position: fixed;
