@@ -9,7 +9,7 @@ import LoadingBox from "../components/LoadingBox";
 //! Redux
 import { useSelector, useDispatch } from "react-redux";
 import { listProducts } from "../actions/productActions";
-import { listTopSellers } from "../actions/userActions";
+// import { listTopSellers } from "../actions/userActions";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const HomeScreen = () => {
 
   useEffect(() => {
     dispatch(listProducts({}));
-    dispatch(listTopSellers());
+    // dispatch(listTopSellers());
   }, [dispatch]);
 
   // const userTopSellersList = useSelector((state) => state.userTopSellersList);

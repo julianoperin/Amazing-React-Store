@@ -136,7 +136,7 @@ const SearchScreen = (props) => {
             </ul>
           </div>
           <div>
-            {/* //! Review */}
+            {/* //! Ratings */}
             <h3>Avg. Customer Review</h3>
             <ul>
               {ratings.map((r) => (

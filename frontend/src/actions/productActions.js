@@ -43,11 +43,11 @@ export const listProducts = ({
     });
   } catch (error) {
     console.log(error);
-
-    dispatch({
-      type: PRODUCT_LIST_FAIL,
-      payload: error.message,
-    });
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({ type: PRODUCT_LIST_FAIL, payload: message });
   }
 };
 
@@ -63,10 +63,11 @@ export const listProductsCategories = () => async (dispatch) => {
       payload: data,
     });
   } catch (error) {
-    dispatch({
-      type: PRODUCT_CATEGORY_FAIL,
-      payload: error.message,
-    });
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({ type: PRODUCT_CATEGORY_FAIL, payload: message });
   }
 };
 
