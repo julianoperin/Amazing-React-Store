@@ -54,6 +54,7 @@ const App = () => {
     dispatch(signout());
   };
 
+  //! To use side categories on side list
   useEffect(() => {
     dispatch(listProductsCategories());
   }, [dispatch]);
@@ -187,22 +188,25 @@ const App = () => {
           <Route exact path="/" component={HomeScreen} />
           <Route exact path="/product/:id" component={ProductScreen} />
           <Route exact path="/product/:id/edit" component={ProductEditScreen} />
+          {/* name */}
           <Route exact path="/search/name/:name?" component={SearchScreen} />
+
           <Route
             exact
             path="/search/category/:category"
             component={SearchScreen}
           />
+          {/* Search Box */}
           <Route
             exact
             path="/search/category/:category/name/:name"
             component={SearchScreen}
           />
           <Route
-            exact
-            path="/search/category/:category/name/:name/min/:min/max/:max"
+            path="/search/category/:category/name/:name/min/:min/max/:max/rating/:rating/order/:order"
             component={SearchScreen}
-          />
+            exact
+          ></Route>
 
           <Route path="/cart/:id?" component={CartScreen} />
           <Route path="/signin" component={SigninScreen} />

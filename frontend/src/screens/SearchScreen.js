@@ -5,15 +5,23 @@ import { listProducts } from "../actions/productActions";
 
 import MessageBox from "../components/MessageBox";
 import LoadingBox from "../components/LoadingBox";
+import Rating from "../components/Rating";
 import Product from "../components/Product";
-import { prices, rating } from "../utils";
+import { prices, ratings } from "../utils";
 
 //! Redux
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 const SearchScreen = (props) => {
-  const { name = "all", category = "", min = 0, max = 1000000 } = useParams();
+  const {
+    name = "all",
+    category = "all",
+    min = 0,
+    max = 0,
+    rating = 0,
+    order = "newest",
+  } = useParams();
 
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
@@ -21,19 +29,12 @@ const SearchScreen = (props) => {
 
   const productCategoryList = useSelector((state) => state.productCategoryList);
   const {
-    loading: loadingCategory,
-    error: errorCategory,
+    loading: loadingCategories,
+    error: errorCategories,
     categories,
   } = productCategoryList;
 
-  const getFilterUrl = (filter) => {
-    const filterCategory = filter.category || category;
-    const filterName = filter.name || name;
-    const filterMin = filter.min ? filter.min : filter.min === 0 ? 0 : min;
-    const filterMax = filter.max || max;
-    return `/search/category/${filterCategory}/name/${filterName}/min/${filterMin}/max/${filterMax}`;
-  };
-
+  //! Dispatch listProducts
   useEffect(() => {
     dispatch(
       listProducts({
@@ -41,9 +42,23 @@ const SearchScreen = (props) => {
         category: category !== "all" ? category : "",
         min,
         max,
+        rating,
+        order,
       })
     );
-  }, [dispatch, name]);
+  }, [category, dispatch, max, min, name, order, rating]);
+
+  //! Filter
+  const getFilterUrl = (filter) => {
+    const filterCategory = filter.category || category;
+    const filterName = filter.name || name;
+    const filterRating = filter.rating || rating;
+    const sortOrder = filter.order || order;
+    const filterMin = filter.min ? filter.min : filter.min === 0 ? 0 : min;
+    const filterMax = filter.max ? filter.max : filter.max === 0 ? 0 : max;
+    return `/search/category/${filterCategory}/name/${filterName}/min/${filterMin}/max/${filterMax}/rating/${filterRating}/order/${sortOrder}`;
+  };
+
   return (
     <div>
       <div className="row">
@@ -55,16 +70,40 @@ const SearchScreen = (props) => {
           <div>{products.length} Results</div>
         )}
       </div>
+      {/* //! Sort Select Box */}
+      <div>
+        Sort by{" "}
+        <select
+          value={order}
+          onChange={(e) => {
+            props.history.push(getFilterUrl({ order: e.target.value }));
+          }}
+        >
+          <option value="newest">Newest Arrivals</option>
+          <option value="lowest">Price: Low to High</option>
+          <option value="highest">Price: High to Low</option>
+          <option value="toprated">Avg. Customer Reviews</option>
+        </select>
+      </div>
+      {/* //! Department */}
       <div className="row top">
         <div className="col-1">
           <h3>Department</h3>
           <div>
-            {loadingCategory ? (
+            {loadingCategories ? (
               <LoadingBox></LoadingBox>
-            ) : errorCategory ? (
-              <MessageBox variant="danger">{errorCategory}</MessageBox>
+            ) : errorCategories ? (
+              <MessageBox variant="danger">{errorCategories}</MessageBox>
             ) : (
               <ul>
+                <li>
+                  <Link
+                    className={"all" === category ? "active" : ""}
+                    to={getFilterUrl({ category: "all" })}
+                  >
+                    Any
+                  </Link>
+                </li>
                 {categories.map((c) => (
                   <li key={c}>
                     <Link
@@ -79,6 +118,7 @@ const SearchScreen = (props) => {
             )}
           </div>
           <div>
+            {/* //! Prices */}
             <h3>Price</h3>
             <ul>
               {prices.map((p) => (
@@ -95,7 +135,24 @@ const SearchScreen = (props) => {
               ))}
             </ul>
           </div>
+          <div>
+            {/* //! Review */}
+            <h3>Avg. Customer Review</h3>
+            <ul>
+              {ratings.map((r) => (
+                <li key={r.name}>
+                  <Link
+                    to={getFilterUrl({ rating: r.rating })}
+                    className={`${r.rating}` === `${rating}` ? "active" : ""}
+                  >
+                    <Rating caption={" & up"} rating={r.rating}></Rating>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
+
         <div className="col-3">
           {loading ? (
             <LoadingBox></LoadingBox>
