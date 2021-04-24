@@ -88,7 +88,9 @@ const CartScreen = (props) => {
               <h2>
                 Subtotal ({cartItems.reduce((acc, cv) => acc + cv.qty, 0)}{" "}
                 items) : ${" "}
-                {cartItems.reduce((acc, cv) => acc + cv.price * cv.qty, 0)}
+                {cartItems
+                  .reduce((acc, cv) => acc + cv.price * cv.qty, 0)
+                  .toFixed(2)}
               </h2>
             </li>
             <li>

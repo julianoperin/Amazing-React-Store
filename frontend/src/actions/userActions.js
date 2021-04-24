@@ -92,7 +92,7 @@ export const detailsUser = (userId) => async (dispatch, getState) => {
 
   try {
     const { data } = await Axios.get(`/api/users/${userId}`, {
-      headers: { Authorization: `Bearer ${userInfo.token}` },
+      headers: { Authorization: `Bearer ${userInfo?.token}` },
     });
     console.log(data);
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
@@ -173,7 +173,7 @@ export const deleteUser = (userId) => async (dispatch, getState) => {
 
 //! UPDATE USER as ADMIN
 export const updateUser = (user) => async (dispatch, getState) => {
-  dispatch({ type: USER_UPDATE_PROFILE_REQUEST, payload: user });
+  dispatch({ type: USER_UPDATE_SUCCESS, payload: user });
   const {
     userSignin: { userInfo },
   } = getState();
