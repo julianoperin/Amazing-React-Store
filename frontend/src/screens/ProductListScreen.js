@@ -112,14 +112,14 @@ const ProductListScreen = (props) => {
                       props.history.push(`/product/${product._id}/edit`)
                     }
                   >
-                    Edit
+                    <i class="fas fa-user-edit"></i>
                   </button>
                   <button
                     type="button"
                     className="small"
                     onClick={() => deleteHandler(product)}
                   >
-                    Delete
+                    <i class="fas fa-trash-alt"></i>
                   </button>
                 </td>
               </tr>

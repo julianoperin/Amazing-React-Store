@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
+import logo from "./assets/logo1.svg";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import CartScreen from "./screens/CartScreen";
@@ -62,8 +63,8 @@ const App = () => {
   return (
     <Router>
       <div className="grid-container">
-        <header className="row">
-          <div>
+        <header>
+          <div className="sidebar-logo">
             <button
               type="button"
               className="open-sidebar"
@@ -72,7 +73,7 @@ const App = () => {
               <i className="fa fa-bars"></i>
             </button>
             <Link className="brand" to="/">
-              Amazing
+              <img className="logo" src={logo} alt="Amazing" />
             </Link>
           </div>
           <div>
@@ -82,23 +83,16 @@ const App = () => {
               )}
             ></Route>
           </div>
-          <div>
-            <Link to="/cart" className="cart">
-              <i class="fas fa-shopping-cart">
-                {cartItems.length > 0 && (
-                  <span className="badge">{cartItems.length}</span>
-                )}
-              </i>
-            </Link>
+          <div className="dropdown-section">
             {userInfo && userInfo.isSeller && (
               <div className="dropdown">
                 <Link to="#seller">
                   Seller <i className="fa fa-caret-down"></i>
                 </Link>
-                <ul className="dropdown-content">
-                  <li>
+                <ul className="dropdown-content-small">
+                  {/* <li>
                     <Link to="/dashboard">Dashboard</Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link to="/productlist/seller">Products</Link>
                   </li>
@@ -113,10 +107,10 @@ const App = () => {
                 <Link to="#admin">
                   Admin <i className="fa fa-caret-down"></i>
                 </Link>
-                <ul className="dropdown-content">
-                  <li>
+                <ul className="dropdown-content-small">
+                  {/* <li>
                     <Link to="/dashboard">Dashboard</Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link to="/productlist">Products</Link>
                   </li>
@@ -151,8 +145,16 @@ const App = () => {
             ) : (
               <Link to="/signin">Sign In</Link>
             )}
+            <Link to="/cart" className="cart">
+              <i class="fas fa-shopping-cart">
+                {cartItems.length > 0 && (
+                  <span className="badge">{cartItems.length}</span>
+                )}
+              </i>
+            </Link>
           </div>
         </header>
+
         <aside className={sidebarIsOpen ? "open" : ""}>
           <ul className="categories">
             <li>

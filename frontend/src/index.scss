@@ -6,6 +6,8 @@ font-family: 'Roboto', sans-serif; */
 html {
   font-size: 62.5%; /* 16px x 62.5 = 10px = 1rem */
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 body {
   font-family: "Roboto", sans-serif !important;
@@ -21,7 +23,7 @@ body {
   height: 100%;
 }
 
-/* Layout */
+/*!  Layout */
 .grid-container {
   display: grid;
   grid-template-areas:
@@ -32,17 +34,47 @@ body {
   grid-template-rows: 5rem 1fr 5rem;
   height: 100%;
 }
+
 header {
   grid-area: header;
-  background-color: #203040;
+  background-color: #141921;
+  min-height: 6vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  /* Icon Sidebar */
+  .sidebar-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .logo {
+      margin-top: 1.3rem;
+      width: 90px;
+    }
+  }
+
+  a.brand {
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+  a {
+    color: #ffffff;
+    padding-bottom: 0.3rem;
+  }
 }
+
 main {
   grid-area: main;
   padding: 1rem;
 }
 footer {
   grid-area: footer;
-  background-color: #203040;
+  background-color: #141921;
   color: #ffffff;
 }
 /* Common */
@@ -62,19 +94,11 @@ a:hover {
   color: #ff8000;
 }
 /* Header */
-header a {
-  color: #ffffff;
-  padding: 1rem;
-}
-a.brand {
-  color: #ffffff;
-  font-size: 3rem;
-  font-weight: bold;
-}
+// header a {
+//   color: #ffffff;
+//   padding: 1rem;
+// }
 
-.cart {
-  margin-right: 2.2rem;
-}
 .fa-shopping-cart {
   position: absolute;
 }
@@ -234,6 +258,10 @@ button {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.header {
+  align-items: center !important;
+}
+
 button {
   background: #f8f8f8;
   cursor: pointer;
@@ -246,7 +274,7 @@ textarea:hover {
 }
 
 button.primary {
-  background-color: #f0c040;
+  background-color: #f3a847;
 }
 
 button.block {
@@ -274,33 +302,55 @@ button:hover {
 }
 
 /* ! DropDown */
-.dropdown {
-  display: inline-block;
-  position: relative;
-}
 
-.dropdown-content {
-  position: absolute;
-  display: none;
-  right: 0;
-  min-width: 12rem;
-  padding: 1rem;
-  z-index: 1;
-  background: #203040;
-  margin: 0;
-  margin-top: 0.4rem;
-  border-radius: 0.5rem;
-}
+.dropdown-section {
+  .dropdown {
+    display: inline-block;
+    position: relative;
+    margin-right: 3rem;
+  }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+  .dropdown-content {
+    position: absolute;
+    display: none;
+    right: 0;
+    min-width: 9.5rem;
+    padding: 1rem;
+    z-index: 1;
+    background: #141921;
+    margin: 0;
+    margin-top: 0.4rem;
+    border-radius: 0.5rem;
+  }
+  .dropdown-content-small {
+    position: absolute;
+    display: none;
+    right: 0;
+    min-width: 7rem;
+    padding: 1rem;
+    z-index: 1;
+    background: #141921;
+    margin: 0;
+    margin-top: 0.4rem;
+    border-radius: 0.5rem;
+  }
 
-.dropdown:hover i {
-  transform: rotate(180deg);
-  transition: all 0.3s ease-in-out;
-}
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .dropdown:hover .dropdown-content-small {
+    display: block;
+  }
 
+  .dropdown:hover i {
+    transform: rotate(180deg);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .cart {
+    margin-right: 4rem;
+  }
+}
 /* ! Checkout steps */
 
 .checkout-steps > div {
@@ -351,31 +401,28 @@ button:hover {
   max-width: 30rem;
 }
 
-/*! Search */
+//! Search Button
+.search {
+  input {
+    width: 35rem;
+    border-radius: 0.5rem 0 0 0.5rem;
+    border-right: none;
+    margin-left: 0.5rem;
+  }
 
-/* .search {
-} */
-
-.search button {
-  /* width: 5rem; */
-  border-radius: 0 0.5rem 0.5rem 0;
-  border-right: none;
-  margin-right: 0.5rem;
+  button {
+    width: 5rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    border-right: none;
+    margin-right: 0.5rem;
+  }
 }
 
-.search button:hover {
-  transform: scale(1.05);
-}
-
-.search input {
-  /* width: 30rem; */
-  border-radius: 0.5rem 0 0 0.5rem;
-  border-right: none;
-  margin-left: 0.5rem;
-}
-
+//! Outline
 button:focus,
-input:focus {
+input:focus,
+select:focus,
+textarea:focus {
   outline: none;
 }
 
@@ -387,7 +434,7 @@ main.active {
   color: red !important;
 }
 
-/* Aside */
+/* Aside bar*/
 aside {
   position: fixed;
   width: 30rem;
@@ -401,11 +448,10 @@ aside.open {
   transform: translateX(0);
 }
 
-/* Icon */
 button.open-sidebar {
   font-size: 2.5rem;
   padding: 0.2rem 0.5rem;
-  margin: 0 0.5rem;
+  margin: 0.5rem 0.7rem 0.7rem 0.9rem;
   background: none;
   color: #ffffff;
   cursor: pointer;
@@ -414,6 +460,7 @@ button.open-sidebar {
 button.open-sidebar:hover {
   /* border-color: #ffffff; */
 }
+
 aside ul {
   padding: 0;
   list-style: none;

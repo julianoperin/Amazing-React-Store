@@ -53,7 +53,7 @@ const OrderHistoryScreen = (props) => {
                     className="small"
                     onClick={() => props.history.push(`/order/${order._id}`)}
                   >
-                    Details
+                    <i class="fas fa-edit"></i> Details
                   </button>
                 </td>
               </tr>
