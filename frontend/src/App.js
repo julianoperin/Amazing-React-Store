@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import logo from "./assets/logo1.svg";
+import cartt from "./assets/cart.svg";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import CartScreen from "./screens/CartScreen";
@@ -145,12 +146,13 @@ const App = () => {
             ) : (
               <Link to="/signin">Sign In</Link>
             )}
+          </div>
+          <div className="cart-all">
             <Link to="/cart" className="cart">
-              <i class="fas fa-shopping-cart">
-                {cartItems.length > 0 && (
-                  <span className="badge">{cartItems.length}</span>
-                )}
-              </i>
+              <img className="cart-icon" src={cartt} alt="cart" />
+              {cartItems.length > 0 && (
+                <span className="badge">{cartItems.length}</span>
+              )}
             </Link>
           </div>
         </header>

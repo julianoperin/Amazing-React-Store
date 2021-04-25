@@ -99,19 +99,37 @@ a:hover {
 //   padding: 1rem;
 // }
 
+header {
+  position: relative;
+}
+
+.cart-all {
+  position: absolute;
+  top: 18px;
+  right: 0px;
+}
+
 .fa-shopping-cart {
   position: absolute;
 }
 
+.cart-icon {
+  width: 25px;
+}
+
+.cart {
+  // margin: 0 0.3rem 0 0 !important;
+}
+
 .badge {
   position: relative;
-  background-color: #f02020;
-  color: #fff;
+  color: #f3a847;
   border-radius: 50%;
   padding: 0.2rem 0.7rem;
-  font-size: 1.4rem;
-  top: -10px;
-  left: -9px;
+  font-size: 1.7rem;
+  font-weight: bold;
+  top: -15px;
+  left: -23px;
 }
 
 .row {
@@ -304,10 +322,11 @@ button:hover {
 /* ! DropDown */
 
 .dropdown-section {
+  margin-right: 4.5rem;
   .dropdown {
     display: inline-block;
     position: relative;
-    margin-right: 3rem;
+    margin-right: 1.5rem;
   }
 
   .dropdown-content {
@@ -345,10 +364,6 @@ button:hover {
   .dropdown:hover i {
     transform: rotate(180deg);
     transition: all 0.3s ease-in-out;
-  }
-
-  .cart {
-    margin-right: 4rem;
   }
 }
 /* ! Checkout steps */
