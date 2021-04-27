@@ -1,9 +1,10 @@
 import React from "react";
+import loader from "../assets/loader.gif";
 
 const LoadingBox = () => {
   return (
     <div className="loading">
-      <i className="fas fa-spinner"></i> Loading...
+      <img src={loader} alt="loader" />
     </div>
   );
 };

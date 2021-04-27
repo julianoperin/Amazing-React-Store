@@ -25,7 +25,7 @@ body {
 
 .back-to-result {
   display: block;
-  margin: 1rem !important;
+  margin: 2rem 1rem !important;
   color: #f3a847;
 
   img {
@@ -235,9 +235,17 @@ img.large {
   margin: 1rem 0 !important;
 }
 /* ! ALERT */
+
+// ******* Loading ********//
 .loading {
-  display: Block;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vh !important;
+  height: 10vh !important;
+  img {
+    width: 50px;
+  }
 }
 
 .alert {
