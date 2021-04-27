@@ -3,7 +3,7 @@ import { isAuth } from "../utils.js";
 import multer from "multer";
 import config from "../config.js";
 
-import multerS3 from "multer-S3";
+import multerS3 from "multer-s3";
 import aws from "aws-sdk";
 
 const uploadRouter = express.Router();
