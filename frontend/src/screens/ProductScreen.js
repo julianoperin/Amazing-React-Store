@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 
 import { PRODUCT_REVIEW_CREATE_RESET } from "../constant/productConstants";
 
+import back from "../assets/back.svg";
+
 //! Redux
 import { useSelector, useDispatch } from "react-redux";
 import { createReview, detailsProduct } from "../actions/productActions";
@@ -71,7 +73,9 @@ const ProductScreen = (props) => {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div>
-          <Link to="/">Back to result</Link>
+          <Link to="/" className="back-to-result">
+            <img src={back} alt="" /> Back to result
+          </Link>
           <div className="row top">
             <div className="col-2">
               <img

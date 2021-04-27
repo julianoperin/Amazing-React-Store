@@ -10,7 +10,7 @@ function SearchBox(props) {
 
   return (
     <form className="search" onSubmit={submitHandler}>
-      <div className="row">
+      <div>
         <input
           type="text"
           name="q"

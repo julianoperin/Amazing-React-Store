@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import logo from "./assets/logo1.svg";
+import logoMobile from "./assets/mobile-logo.svg";
 import cartt from "./assets/cart.svg";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -54,6 +55,7 @@ const App = () => {
 
   const signoutHandler = () => {
     dispatch(signout());
+    setSidebarIsOpen(false);
   };
 
   //! To use side categories on side list
@@ -75,6 +77,9 @@ const App = () => {
             </button>
             <Link className="brand" to="/">
               <img className="logo" src={logo} alt="Amazing" />
+            </Link>
+            <Link className="brand-mobile" to="/">
+              <img className="logo" src={logoMobile} alt="Amazing" />
             </Link>
           </div>
           <div>
@@ -146,7 +151,7 @@ const App = () => {
                 </div>
               ) : (
                 <Link className="signin-mobile" to="/signin">
-                  Sign In
+                  <i class="fas fa-user-plus"></i> Sign In
                 </Link>
               )}
             </div>
@@ -166,81 +171,123 @@ const App = () => {
         {/* ASIDE */}
         <aside className={sidebarIsOpen ? "open" : ""}>
           <div className="dropdown-section-mobile">
-            {userInfo && userInfo.isSeller && (
-              <div className="dropdown">
-                <Link to="#seller">
-                  Seller <i className="fa fa-caret-down"></i>
-                </Link>
-                <ul className="dropdown-content-small">
-                  {/* <li>
-                    <Link to="/dashboard">Dashboard</Link>
-                  </li> */}
-                  <li>
-                    <Link to="/productlist/seller">Products</Link>
-                  </li>
-                  <li>
-                    <Link to="/orderlist/seller">Orders</Link>
-                  </li>
-                </ul>
-              </div>
-            )}
-            {userInfo && userInfo.isAdmin && (
-              <div className="dropdown">
-                <Link to="#admin">
-                  Admin <i className="fa fa-caret-down"></i>
-                </Link>
-                <ul className="dropdown-content-small">
-                  {/* <li>
-                    <Link to="/dashboard">Dashboard</Link>
-                  </li> */}
-                  <li>
-                    <Link to="/productlist">Products</Link>
-                  </li>
-                  <li>
-                    <Link to="/orderlist">Orders</Link>
-                  </li>
-                  <li>
-                    <Link to="/userlist">Users</Link>
-                  </li>
-                </ul>
-              </div>
-            )}
+            <button
+              onClick={() => setSidebarIsOpen(false)}
+              className="close-sidebar"
+              type="button"
+            >
+              <i className="fa fa-close"></i>
+            </button>
+
             {userInfo ? (
-              <div className="dropdown">
+              <div className="dropdown-mobile">
                 <Link to="#">
-                  Hello, {userInfo.name} <i className="fa fa-caret-down"></i>
+                  <span className="gretting">Hello</span>, {userInfo.name}
                 </Link>
                 <ul className="dropdown-content">
                   <li>
-                    <Link to="/orderhistory">Order History</Link>
+                    <Link
+                      to="/orderhistory"
+                      onClick={() => setSidebarIsOpen(false)}
+                    >
+                      <i class="fas fa-caret-right"></i> Order History
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/profile">Profile</Link>
-                  </li>
-                  <li>
-                    <Link to="#signout" onClick={signoutHandler}>
-                      Sign Out
+                    <Link to="/profile" onClick={() => setSidebarIsOpen(false)}>
+                      <i class="fas fa-caret-right"></i> Profile
                     </Link>
                   </li>
                 </ul>
               </div>
             ) : (
-              <Link className="signin-mobile" to="/signin">
-                Sign In
-              </Link>
+              ""
+            )}
+
+            {userInfo && userInfo.isAdmin && (
+              <div className="dropdown">
+                <Link to="#admin" className="gretting">
+                  Admin
+                </Link>
+                <ul className="dropdown-content-small">
+                  {/* <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li> */}
+                  <li>
+                    <Link
+                      to="/productlist"
+                      onClick={() => setSidebarIsOpen(false)}
+                    >
+                      <i class="fas fa-caret-right"></i> Products
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/orderlist"
+                      onClick={() => setSidebarIsOpen(false)}
+                    >
+                      <i class="fas fa-caret-right"></i> Orders
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/userlist"
+                      onClick={() => setSidebarIsOpen(false)}
+                    >
+                      <i class="fas fa-caret-right"></i> Users
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            )}
+            {userInfo && userInfo.isSeller && (
+              <div className="dropdown">
+                <Link to="#seller" className="gretting">
+                  Seller
+                </Link>
+                <ul className="dropdown-content-small">
+                  {/* <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li> */}
+                  <li>
+                    <Link
+                      to="/productlist/seller"
+                      onClick={() => setSidebarIsOpen(false)}
+                    >
+                      <i class="fas fa-caret-right"></i> Products
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/orderlist/seller"
+                      onClick={() => setSidebarIsOpen(false)}
+                    >
+                      <i class="fas fa-caret-right"></i> Orders
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            )}
+
+            {userInfo ? (
+              <div className="dropdown">
+                <Link to="#signout" onClick={signoutHandler} className="user">
+                  <i class="fas fa-sign-out-alt"></i> Sign Out
+                </Link>
+              </div>
+            ) : (
+              <div className="dropdown">
+                <Link
+                  to="/signin"
+                  className="user"
+                  onClick={() => setSidebarIsOpen(false)}
+                >
+                  <i class="fas fa-user-plus"></i> Sign In
+                </Link>
+              </div>
             )}
           </div>
-          <ul className="categories">
-            <li>
-              <strong>Categories</strong>
-              <button
-                onClick={() => setSidebarIsOpen(false)}
-                className="close-sidebar"
-                type="button"
-              >
-                <i className="fa fa-close"></i>
-              </button>
-            </li>
+          {/* <ul className="categories">
             {loadingCategories ? (
               <LoadingBox></LoadingBox>
             ) : errorCategories ? (
@@ -257,7 +304,7 @@ const App = () => {
                 </li>
               ))
             )}
-          </ul>
+          </ul> */}
         </aside>
         <main>
           <Route path="/seller/:id" component={SellerScreen} />
