@@ -39,13 +39,20 @@ header {
   grid-area: header;
   background-color: #141921;
   min-height: 6vh;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-areas: "menu-logo  search-box  menu-links";
+  place-items: center;
+  // grid-template-columns: 50px 50px 50px 50px;
+  // grid-template-rows: 1rem 5fr 5rem 1rem;
+  // flex-wrap: wrap;
+  // justify-content: space-between;
+  // align-items: center;
 
   /* Icon Sidebar */
   .sidebar-logo {
+    grid-area: menu-logo;
+    justify-self: start;
+    margin-left: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,6 +61,15 @@ header {
       margin-top: 1.3rem;
       width: 90px;
     }
+  }
+
+  .menu-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: menu-links;
+    justify-self: end;
+    margin-right: 1rem;
   }
 
   a.brand {
@@ -93,43 +109,40 @@ a {
 a:hover {
   color: #ff8000;
 }
-/* Header */
-// header a {
-//   color: #ffffff;
-//   padding: 1rem;
-// }
 
-header {
-  position: relative;
-}
+// *******  CART   ******* //
 
+// div
 .cart-all {
-  position: absolute;
-  top: 18px;
-  right: 0px;
+  // top: 18px !important;
+  // right: 2px !important;
 }
 
-.fa-shopping-cart {
-  position: absolute;
-}
-
-.cart-icon {
-  width: 25px;
-}
-
+// Link
 .cart {
-  // margin: 0 0.3rem 0 0 !important;
+  // position: absolute;
+}
+
+// img
+.cart-icon {
+  width: 24px;
+  // margin-right: 1rem !important;
 }
 
 .badge {
   position: relative;
   color: #f3a847;
-  border-radius: 50%;
-  padding: 0.2rem 0.7rem;
-  font-size: 1.7rem;
+  // padding: 0.2rem 0.7rem;
+  font-size: 1.5rem;
   font-weight: bold;
   top: -15px;
-  left: -23px;
+  right: 14px;
+}
+
+// *******  END CART   ******* //
+
+.titles {
+  text-align: center;
 }
 
 .row {
@@ -322,7 +335,8 @@ button:hover {
 /* ! DropDown */
 
 .dropdown-section {
-  margin-right: 4.5rem;
+  grid-area: menu-links;
+  justify-self: end;
   .dropdown {
     display: inline-block;
     position: relative;
@@ -365,7 +379,68 @@ button:hover {
     transform: rotate(180deg);
     transition: all 0.3s ease-in-out;
   }
+
+  .signin-mobile {
+    margin-right: 1rem;
+  }
 }
+
+/*****  DropDown Mobile ******/
+
+.dropdown-section-mobile {
+  grid-area: menu-links;
+  justify-self: end;
+  .dropdown {
+    display: inline-block;
+    position: relative;
+    margin-right: 1.5rem;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    display: none;
+    right: 0;
+    min-width: 9.5rem;
+    padding: 1rem;
+    z-index: 1;
+    background: #141921;
+    margin: 0;
+    margin-top: 0.4rem;
+    border-radius: 0.5rem;
+  }
+  .dropdown-content-small {
+    position: absolute;
+    display: none;
+    right: 0;
+    min-width: 7rem;
+    padding: 1rem;
+    z-index: 1;
+    background: #141921;
+    margin: 0;
+    margin-top: 0.4rem;
+    border-radius: 0.5rem;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .dropdown:hover .dropdown-content-small {
+    display: block;
+  }
+
+  .dropdown:hover i {
+    transform: rotate(180deg);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .signin-mobile {
+    margin-right: 1rem;
+  }
+  a {
+    color: white;
+  }
+}
+
 /* ! Checkout steps */
 
 .checkout-steps > div {
@@ -418,6 +493,7 @@ button:hover {
 
 //! Search Button
 .search {
+  grid-area: search-box;
   input {
     width: 35rem;
     border-radius: 0.5rem 0 0 0.5rem;
@@ -450,11 +526,14 @@ main.active {
 }
 
 /* Aside bar*/
+.open-sidebar {
+  visibility: hidden;
+}
 aside {
   position: fixed;
   width: 30rem;
   height: 100%;
-  background-color: #efefef;
+  background-color: #141921;
   z-index: 1000;
   transform: translateX(-30rem);
   transition: all 0.5s;
@@ -505,4 +584,53 @@ button.close-sidebar {
 
 .results-search {
   margin-left: 3.5rem;
+}
+
+@media only screen and (max-width: 885px) {
+  header {
+    grid-template-areas:
+      "menu-logo  menu-links menu-links"
+      "search-box search-box search-box search-box";
+  }
+  .open-sidebar {
+    visibility: visible;
+  }
+  a.brand {
+    display: none;
+  }
+
+  .dropdown-section {
+    display: none !important;
+  }
+  .signin-mobile {
+    display: none !important;
+  }
+
+  .menu-cart {
+    margin-top: 1rem;
+  }
+}
+
+@media only screen and (max-width: 545px) {
+  input {
+    width: 25rem !important;
+  }
+}
+
+@media only screen and (max-width: 445px) {
+  input {
+    width: 20rem !important;
+  }
+}
+
+@media only screen and (max-width: 385px) {
+  input {
+    width: 16rem !important;
+  }
+}
+
+@media only screen and (max-width: 345px) {
+  input {
+    width: 13rem !important;
+  }
 }

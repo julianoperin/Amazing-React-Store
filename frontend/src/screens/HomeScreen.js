@@ -30,7 +30,7 @@ const HomeScreen = () => {
 
   return (
     <div>
-      <h2>Top Sellers</h2>
+      {/* <h2>Top Sellers</h2> */}
       {/* {loadingSellers ? (
         <LoadingBox></LoadingBox>
       ) : errorSellers ? (
@@ -50,7 +50,7 @@ const HomeScreen = () => {
           </Carousel>
         </>
       )} */}
-      <h2>Featured Products</h2>
+      <h2 className="titles">Featured Products</h2>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (

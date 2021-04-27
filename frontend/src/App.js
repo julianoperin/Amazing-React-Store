@@ -84,7 +84,88 @@ const App = () => {
               )}
             ></Route>
           </div>
-          <div className="dropdown-section">
+          <div className="menu-cart">
+            <div className="dropdown-section">
+              {userInfo && userInfo.isSeller && (
+                <div className="dropdown">
+                  <Link to="#seller">
+                    Seller <i className="fa fa-caret-down"></i>
+                  </Link>
+                  <ul className="dropdown-content-small">
+                    {/* <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li> */}
+                    <li>
+                      <Link to="/productlist/seller">Products</Link>
+                    </li>
+                    <li>
+                      <Link to="/orderlist/seller">Orders</Link>
+                    </li>
+                  </ul>
+                </div>
+              )}
+              {userInfo && userInfo.isAdmin && (
+                <div className="dropdown">
+                  <Link to="#admin">
+                    Admin <i className="fa fa-caret-down"></i>
+                  </Link>
+                  <ul className="dropdown-content-small">
+                    {/* <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li> */}
+                    <li>
+                      <Link to="/productlist">Products</Link>
+                    </li>
+                    <li>
+                      <Link to="/orderlist">Orders</Link>
+                    </li>
+                    <li>
+                      <Link to="/userlist">Users</Link>
+                    </li>
+                  </ul>
+                </div>
+              )}
+              {userInfo ? (
+                <div className="dropdown">
+                  <Link to="#">
+                    Hello, {userInfo.name} <i className="fa fa-caret-down"></i>
+                  </Link>
+                  <ul className="dropdown-content">
+                    <li>
+                      <Link to="/orderhistory">Order History</Link>
+                    </li>
+                    <li>
+                      <Link to="/profile">Profile</Link>
+                    </li>
+                    <li>
+                      <Link to="#signout" onClick={signoutHandler}>
+                        Sign Out
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <Link className="signin-mobile" to="/signin">
+                  Sign In
+                </Link>
+              )}
+            </div>
+            <div className="cart-all">
+              <Link to="/cart" className="cart">
+                <img className="cart-icon" src={cartt} alt="cart" />
+                {cartItems.length > 0 ? (
+                  <span className="badge">{cartItems.length}</span>
+                ) : (
+                  <span className="badge">0</span>
+                )}
+              </Link>
+            </div>
+          </div>
+        </header>
+
+        {/* ASIDE */}
+        <aside className={sidebarIsOpen ? "open" : ""}>
+          <div className="dropdown-section-mobile">
             {userInfo && userInfo.isSeller && (
               <div className="dropdown">
                 <Link to="#seller">
@@ -144,20 +225,11 @@ const App = () => {
                 </ul>
               </div>
             ) : (
-              <Link to="/signin">Sign In</Link>
+              <Link className="signin-mobile" to="/signin">
+                Sign In
+              </Link>
             )}
           </div>
-          <div className="cart-all">
-            <Link to="/cart" className="cart">
-              <img className="cart-icon" src={cartt} alt="cart" />
-              {cartItems.length > 0 && (
-                <span className="badge">{cartItems.length}</span>
-              )}
-            </Link>
-          </div>
-        </header>
-
-        <aside className={sidebarIsOpen ? "open" : ""}>
           <ul className="categories">
             <li>
               <strong>Categories</strong>
