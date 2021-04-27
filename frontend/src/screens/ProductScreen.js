@@ -66,7 +66,7 @@ const ProductScreen = (props) => {
   };
 
   return (
-    <div>
+    <div className="container">
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
@@ -84,7 +84,7 @@ const ProductScreen = (props) => {
                 alt={product.name}
               ></img>
             </div>
-            <div className="col-1">
+            <div className="col-1 center">
               <ul>
                 <li>
                   <h1>{product.name}</h1>
@@ -106,7 +106,7 @@ const ProductScreen = (props) => {
               <div className="card card-body">
                 <ul>
                   <li>
-                    Seller{" "}
+                    Seller
                     <h2>
                       <Link to={`/seller/${product.seller._id}`}>
                         {product.seller.seller.name}
@@ -173,7 +173,7 @@ const ProductScreen = (props) => {
           <div>
             <h2 id="reviews">Reviews</h2>
             {product.reviews.length === 0 && (
-              <MessageBox>There is no review</MessageBox>
+              <MessageBox>There is no reviews for this product</MessageBox>
             )}
             <ul>
               {product.reviews.map((review) => (
