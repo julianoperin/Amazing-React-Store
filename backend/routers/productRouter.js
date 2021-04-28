@@ -13,9 +13,6 @@ const productRouter = express.Router();
 productRouter.get(
   "/",
   expressAsyncHandler(async (req, res) => {
-    const pageSize = 3;
-    const page = Number(req.query.pageNumber) || 1;
-
     const category = req.query.category || "";
     const name = req.query.name || "";
     const seller = req.query.seller || "";
@@ -52,9 +49,7 @@ productRouter.get(
       ...ratingFilter,
     })
       .populate("seller", "seller.name seller.logo")
-      .sort(sortOrder)
-      .skip(pageSize * (page - 1))
-      .limit(pageSize);
+      .sort(sortOrder);
     res.send(products);
   })
 );
