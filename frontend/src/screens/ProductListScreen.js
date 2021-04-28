@@ -112,7 +112,7 @@ const ProductListScreen = (props) => {
                       props.history.push(`/product/${product._id}/edit`)
                     }
                   >
-                    <i class="fas fa-user-edit"></i>
+                    <i class="fas fa-edit"></i>
                   </button>
                   <button
                     type="button"

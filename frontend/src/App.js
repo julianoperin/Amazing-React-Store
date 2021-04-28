@@ -7,6 +7,7 @@ import cartt from "./assets/cart.svg";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import CartScreen from "./screens/CartScreen";
+import Footer from "./components/Footer";
 
 //! Private Routes
 import PrivateRoute from "./components/PrivateRoute";
@@ -350,7 +351,7 @@ const App = () => {
           />
           <SellerRoute path="/orderlist/seller" component={OrderListScreen} />
         </main>
-        <footer className="row center">All right reserved</footer>
+        <Footer />
       </div>
     </Router>
   );
