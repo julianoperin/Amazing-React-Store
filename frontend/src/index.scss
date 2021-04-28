@@ -157,8 +157,15 @@ a:hover {
 }
 
 .container {
-  width: 90%;
+  width: 96%;
   margin: 0 auto;
+}
+
+//***** GRID ****//
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 1rem;
 }
 
 .row {
@@ -204,9 +211,9 @@ img.small {
   width: 100%;
 }
 img.medium {
-  /* max-height: 39rem; */
-  max-width: 29rem;
+  height: 50%;
   width: 100%;
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 
 img.large {
@@ -229,14 +236,19 @@ img.large {
 .price {
   font-size: 2rem;
 }
+
 /* Rating */
+.rating {
+  margin-bottom: 1.5rem;
+}
 .rating span {
   color: #f0c040;
-  margin: 0.1rem;
+  margin: 0.1rem 0;
 }
 
 .rating span:last-child {
   color: #404040;
+  margin-left: 0.5rem;
 }
 
 /*! HomeScreen */
@@ -633,6 +645,7 @@ button.close-sidebar {
   background: transparent;
   font-size: 1.7rem;
   cursor: pointer;
+  z-index: 50;
 }
 
 /* sort reset */

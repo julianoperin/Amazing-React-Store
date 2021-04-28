@@ -60,7 +60,7 @@ const SearchScreen = (props) => {
   };
 
   return (
-    <div>
+    <div className="container">
       <div className="row results-search">
         {loading ? (
           <LoadingBox></LoadingBox>
@@ -176,7 +176,7 @@ const SearchScreen = (props) => {
               {products.length === 0 && (
                 <MessageBox>No Product Found</MessageBox>
               )}
-              <div className="row center">
+              <div className="products-grid">
                 {products.map((product) => (
                   <Product key={product._id} product={product}></Product>
                 ))}

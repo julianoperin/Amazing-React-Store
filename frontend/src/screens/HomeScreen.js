@@ -29,7 +29,7 @@ const HomeScreen = () => {
   // } = userTopSellersList;
 
   return (
-    <div>
+    <div className="container">
       {/* <h2>Top Sellers</h2> */}
       {/* {loadingSellers ? (
         <LoadingBox></LoadingBox>
@@ -50,7 +50,7 @@ const HomeScreen = () => {
           </Carousel>
         </>
       )} */}
-      <h2 className="titles">Featured Products</h2>
+      <h2 className="titles">All Products</h2>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
@@ -58,7 +58,7 @@ const HomeScreen = () => {
       ) : (
         <>
           {products.length === 0 && <MessageBox>No Product Found</MessageBox>}
-          <div className="row center">
+          <div className="products-grid">
             {products.map((product) => (
               <Product key={product._id} product={product}></Product>
             ))}
