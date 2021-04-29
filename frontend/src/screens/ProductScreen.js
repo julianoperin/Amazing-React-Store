@@ -80,7 +80,7 @@ const ProductScreen = (props) => {
             <div className="col-2">
               <img className="large" src={product.image} alt={product.name} />
             </div>
-            <div className="col-1 center">
+            <div className="col-1 center description-product">
               <ul>
                 <li>
                   <h1>{product.name}</h1>
@@ -91,10 +91,11 @@ const ProductScreen = (props) => {
                     numReviews={product.numReviews}
                   ></Rating>
                 </li>
-                <li>Pirce : ${product.price}</li>
                 <li>
-                  Description:
-                  <p>{product.description}</p>
+                  <strong>Price</strong>: ${product.price}
+                </li>
+                <li>
+                  <strong>Description</strong>:<p>{product.description}</p>
                 </li>
               </ul>
             </div>
@@ -171,20 +172,28 @@ const ProductScreen = (props) => {
             {product.reviews.length === 0 && (
               <MessageBox>There is no reviews for this product</MessageBox>
             )}
-            <ul>
+            <ul className="product-review">
               {product.reviews.map((review) => (
-                <li key={review._id}>
-                  <strong>{review.name}</strong>
-                  <Rating rating={review.rating} caption=" "></Rating>
-                  <p>{review.createdAt.substring(0, 10)}</p>
-                  <p>{review.comment}</p>
+                <li key={review._id} className="li-reviews">
+                  <div className="name-rate">
+                    <strong>{review.name}</strong>
+                    <Rating rating={review.rating} caption=" "></Rating>
+                  </div>
+
+                  <p className="date-review">
+                    {review.createdAt.substring(0, 10)}
+                  </p>
+
+                  <p className="review-comment">{review.comment}</p>
                 </li>
               ))}
               <li>
                 {userInfo ? (
                   <form className="form" onSubmit={submitHandler}>
                     <div>
-                      <h2>Write a customer review</h2>
+                      <h2 className="title-write-review">
+                        Write a customer review
+                      </h2>
                     </div>
                     <div>
                       <label htmlFor="rating">Rating</label>
@@ -193,12 +202,12 @@ const ProductScreen = (props) => {
                         value={rating}
                         onChange={(e) => setRating(e.target.value)}
                       >
-                        <option value="">Select...</option>
-                        <option value="1">1- Poor</option>
-                        <option value="2">2- Fair</option>
-                        <option value="3">3- Good</option>
-                        <option value="4">4- Very good</option>
-                        <option value="5">5- Excelent</option>
+                        <option value="">Overall rating</option>
+                        <option value="1">1 - Poor</option>
+                        <option value="2">2 - Fair</option>
+                        <option value="3">3 - Good</option>
+                        <option value="4">4 - Very good</option>
+                        <option value="5">5 - Excellent</option>
                       </select>
                     </div>
                     <div>
