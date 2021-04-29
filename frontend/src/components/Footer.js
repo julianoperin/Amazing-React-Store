@@ -1,10 +1,12 @@
 import React from "react";
 // import "./Footer.scss";
 
+import BackToTop from "../components/BackToTop";
+
 const Footer = () => {
   return (
     <footer class="footer">
-      <p className="back__top">Back to top</p>
+      <BackToTop />
       <div class="container-footer">
         <div class="row-footer">
           <div class="footer-col">
