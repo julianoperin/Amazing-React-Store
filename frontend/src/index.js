@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import "./index.scss";
+import "./scss/index.scss";
+import "./scss/navbar.scss";
+import "./scss/footer.scss";
 
 import store from "./store";
 

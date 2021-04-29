@@ -1,0 +1,218 @@
+.header {
+  background-color: #131921;
+  display: flex;
+  align-items: center;
+  min-height: 6vh;
+}
+
+.header__logo {
+  width: 90px;
+  margin: 0 20px;
+  object-fit: contain;
+}
+
+// **** Burger **** //
+.open-sidebar {
+  display: none;
+}
+
+button.open-sidebar {
+  font-size: 2.5rem;
+  padding: 0.2rem 0.5rem;
+  margin: 0.5rem 0.1rem 0.7rem 0.9rem;
+  background: none;
+  color: #ffffff;
+  cursor: pointer;
+  border: none;
+}
+
+.mobile__logo {
+  display: none;
+  .header__logo__mobile {
+    width: 30px;
+    margin: 0 10px;
+    object-fit: contain;
+  }
+}
+
+// *** Search BTN *** //
+.header__search {
+  display: flex;
+  flex: 1;
+  margin: 0 0.5rem;
+
+  input {
+    padding: 10px !important;
+    border: none;
+    width: 100%;
+    border-radius: 5px 0 0 5px !important;
+  }
+
+  .header__searchIcon {
+    background-color: #f3a847;
+    padding: 10px !important;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 5px 5px 0 !important;
+  }
+
+  .fa-search {
+    font-size: 1.6rem;
+  }
+}
+
+.header__nav {
+  display: flex;
+  justify-content: space-evenly !important;
+}
+
+.header__option {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px 0 10px;
+}
+
+.header__optionLineOne {
+  font-size: 13px;
+  color: white;
+  text-decoration: none;
+}
+
+.header__optionLineTwo {
+  font-size: 16px;
+  font-weight: 800;
+  color: white;
+  text-decoration: none;
+}
+
+// *******  CART   ******* //
+.cart-all {
+  margin: 1rem 1rem 0 1rem;
+}
+
+// img
+.cart-icon {
+  width: 24px;
+}
+
+.badge {
+  position: relative;
+  color: #f3a847;
+  font-size: 1.5rem;
+  font-weight: bold;
+  top: -15px;
+  right: 14px;
+}
+
+//*  DropDown *//
+.dropdown-section {
+  display: flex;
+  justify-content: space-between;
+  .dropdown {
+    display: inline-block;
+    position: relative;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    display: none;
+    right: 0;
+    min-width: 13rem;
+    padding: 1rem;
+    z-index: 1;
+    background: #141921;
+    margin: 0;
+    // margin-top: 0.4rem;
+    border-radius: 0.5rem;
+    li a {
+      color: #fff;
+      &:hover {
+        color: #f3a847;
+      }
+    }
+  }
+  .dropdown-content-small {
+    position: absolute;
+    display: none;
+    right: 0;
+    min-width: 8rem;
+    padding: 1rem;
+    z-index: 1;
+    background: #141921;
+    margin: 0;
+    // margin-top: 0.4rem;
+    border-radius: 0.5rem;
+    li a {
+      color: #fff;
+
+      &:hover {
+        color: #f3a847;
+      }
+    }
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .dropdown:hover .dropdown-content-small {
+    display: block;
+  }
+
+  .dropdown:hover i {
+    transform: rotate(180deg);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .signin-mobile {
+    margin-right: 1rem;
+    color: #fff;
+  }
+}
+
+//*****  DropDown Mobile ******//
+
+.dropdown-section-mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  // height: 200px;
+  .dropdown-mobile {
+    display: inline-block;
+    position: relative;
+    margin-right: 1rem !important;
+  }
+
+  .signin-mobile {
+    margin-right: 1rem;
+  }
+  a {
+    color: white;
+  }
+}
+
+@media only screen and (max-width: 885px) {
+  .main__logo {
+    display: none;
+  }
+
+  .open-sidebar {
+    display: flex;
+  }
+
+  .mobile__logo {
+    display: flex;
+  }
+
+  a.brand {
+    display: none;
+  }
+
+  .dropdown-section {
+    display: none !important;
+  }
+  .signin-mobile {
+    display: none !important;
+  }
+}

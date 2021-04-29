@@ -47,13 +47,6 @@ const App = () => {
 
   const dispatch = useDispatch();
 
-  const productCategoryList = useSelector((state) => state.productCategoryList);
-  const {
-    loading: loadingCategories,
-    error: errorCategories,
-    categories,
-  } = productCategoryList;
-
   const signoutHandler = () => {
     dispatch(signout());
     setSidebarIsOpen(false);
@@ -67,53 +60,80 @@ const App = () => {
   return (
     <Router>
       <div className="grid-container">
-        <header>
-          <div className="sidebar-logo">
-            <button
-              type="button"
-              className="open-sidebar"
-              onClick={() => setSidebarIsOpen(true)}
-            >
-              <i className="fa fa-bars"></i>
-            </button>
-            <Link className="brand" to="/">
-              <img className="logo" src={logo} alt="Amazing" />
-            </Link>
-            <Link className="brand-mobile" to="/">
-              <img className="logo" src={logoMobile} alt="Amazing" />
-            </Link>
-          </div>
-          <div>
-            <Route
-              render={({ history }) => (
-                <SearchBox history={history}></SearchBox>
-              )}
-            ></Route>
-          </div>
-          <div className="menu-cart">
+        <nav className="header">
+          {/* LOGO  */}
+          <Link to="/" className="main__logo">
+            <img className="header__logo" src={logo} alt="Amazing" />
+          </Link>
+
+          {/* Address */}
+
+          {/* Burger Menu */}
+          <button
+            type="button"
+            className="open-sidebar"
+            onClick={() => setSidebarIsOpen(true)}
+          >
+            <i className="fa fa-bars"></i>
+          </button>
+
+          {/* Mobile Logo */}
+          <Link className="mobile__logo" to="/">
+            <img
+              className="header__logo__mobile"
+              src={logoMobile}
+              alt="Amazing"
+            />
+          </Link>
+
+          {/* SEARCH BOX */}
+          <Route
+            render={({ history }) => <SearchBox history={history}></SearchBox>}
+          ></Route>
+
+          {/* Links and cart */}
+          <div className="header__nav">
             <div className="dropdown-section">
-              {userInfo && userInfo.isSeller && (
+              {userInfo ? (
                 <div className="dropdown">
-                  <Link to="#seller">
-                    Seller <i className="fa fa-caret-down"></i>
+                  <Link to="#" className="header__option">
+                    <span className="header__optionLineOne">
+                      Hello, {userInfo.name}
+                    </span>
+                    <span className="header__optionLineTwo">
+                      Account & Orders <i className="fa fa-caret-down"></i>
+                    </span>
                   </Link>
-                  <ul className="dropdown-content-small">
-                    {/* <li>
-                    <Link to="/dashboard">Dashboard</Link>
-                  </li> */}
+                  <ul className="dropdown-content">
                     <li>
-                      <Link to="/productlist/seller">Products</Link>
+                      <Link to="/orderhistory">Order History</Link>
                     </li>
                     <li>
-                      <Link to="/orderlist/seller">Orders</Link>
+                      <Link to="/profile">Profile</Link>
+                    </li>
+                    <li>
+                      <Link to="#signout" onClick={signoutHandler}>
+                        Sign Out
+                      </Link>
                     </li>
                   </ul>
                 </div>
+              ) : (
+                <Link className="header__option" to="/signin">
+                  <span className="header__optionLineOne">Hello, Sign in</span>
+                  <span className="header__optionLineTwo">
+                    Account & Orders <i className="fa fa-caret-down"></i>
+                  </span>
+                </Link>
               )}
+
               {userInfo && userInfo.isAdmin && (
                 <div className="dropdown">
-                  <Link to="#admin">
-                    Admin <i className="fa fa-caret-down"></i>
+                  <Link to="#admin" className="header__option">
+                    <span className="header__optionLineOne">Admin</span>
+                    <span className="header__optionLineTwo">
+                      & Manage <i className="fa fa-caret-down"></i>
+                    </span>
                   </Link>
                   <ul className="dropdown-content-small">
                     {/* <li>
@@ -131,45 +151,44 @@ const App = () => {
                   </ul>
                 </div>
               )}
-              {userInfo ? (
+
+              {userInfo && userInfo.isSeller && (
                 <div className="dropdown">
-                  <Link to="#">
-                    Hello, {userInfo.name} <i className="fa fa-caret-down"></i>
+                  <Link to="#seller" className="header__option">
+                    <span className="header__optionLineOne">Seller</span>
+                    <span className="header__optionLineTwo">
+                      & Products <i className="fa fa-caret-down"></i>
+                    </span>
                   </Link>
-                  <ul className="dropdown-content">
+                  <ul className="dropdown-content-small">
+                    {/* <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li> */}
                     <li>
-                      <Link to="/orderhistory">Order History</Link>
+                      <Link to="/productlist/seller">Products</Link>
                     </li>
                     <li>
-                      <Link to="/profile">Profile</Link>
-                    </li>
-                    <li>
-                      <Link to="#signout" onClick={signoutHandler}>
-                        Sign Out
-                      </Link>
+                      <Link to="/orderlist/seller">Orders</Link>
                     </li>
                   </ul>
                 </div>
-              ) : (
-                <Link className="signin-mobile" to="/signin">
-                  <i class="fas fa-user-plus"></i> Sign In
-                </Link>
               )}
             </div>
-            <div className="cart-all">
-              <Link to="/cart" className="cart">
-                <img className="cart-icon" src={cartt} alt="cart" />
-                {cartItems.length > 0 ? (
-                  <span className="badge">{cartItems.length}</span>
-                ) : (
-                  <span className="badge">0</span>
-                )}
-              </Link>
-            </div>
           </div>
-        </header>
 
-        {/* ASIDE */}
+          <div className="cart-all">
+            <Link to="/cart" className="cart">
+              <img className="cart-icon" src={cartt} alt="cart" />
+              {cartItems.length > 0 ? (
+                <span className="badge">{cartItems.length}</span>
+              ) : (
+                <span className="badge">0</span>
+              )}
+            </Link>
+          </div>
+        </nav>
+
+        {/*** ASIDE ****/}
         <aside className={sidebarIsOpen ? "open" : ""}>
           <div className="dropdown-section-mobile">
             <button
@@ -288,31 +307,12 @@ const App = () => {
               </div>
             )}
           </div>
-          {/* <ul className="categories">
-            {loadingCategories ? (
-              <LoadingBox></LoadingBox>
-            ) : errorCategories ? (
-              <MessageBox variant="danger">{errorCategories}</MessageBox>
-            ) : (
-              categories.map((c) => (
-                <li key={c}>
-                  <Link
-                    to={`/search/category/${c}`}
-                    onClick={() => setSidebarIsOpen(false)}
-                  >
-                    {c}
-                  </Link>
-                </li>
-              ))
-            )}
-          </ul> */}
         </aside>
         <main>
           <Route path="/seller/:id" component={SellerScreen} />
           <Route exact path="/" component={HomeScreen} />
           <Route exact path="/product/:id" component={ProductScreen} />
           <Route exact path="/product/:id/edit" component={ProductEditScreen} />
-          {/* name */}
           <Route exact path="/search/name/:name?" component={SearchScreen} />
 
           <Route
@@ -320,7 +320,6 @@ const App = () => {
             path="/search/category/:category"
             component={SearchScreen}
           />
-          {/* Search Box */}
           <Route
             exact
             path="/search/category/:category/name/:name"
