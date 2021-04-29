@@ -39,6 +39,7 @@ import MessageBox from "./components/MessageBox";
 
 const App = () => {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
+
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
@@ -52,10 +53,10 @@ const App = () => {
     setSidebarIsOpen(false);
   };
 
-  //! To use side categories on side list
-  useEffect(() => {
-    dispatch(listProductsCategories());
-  }, [dispatch]);
+  // //! To use side categories on side list
+  // useEffect(() => {
+  //   dispatch(listProductsCategories());
+  // }, [dispatch]);
 
   return (
     <Router>
@@ -66,7 +67,7 @@ const App = () => {
             <img className="header__logo" src={logo} alt="Amazing" />
           </Link>
 
-          {/* Address */}
+          {/* Address: Coming Soon */}
 
           {/* Burger Menu */}
           <button

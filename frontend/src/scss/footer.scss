@@ -2,7 +2,27 @@
 footer {
   color: #fff;
   height: 30vh;
-  background-color: #141921;
+  background-color: #141921 !important;
+  position: relative;
+
+  .back__top {
+    background-color: #37475a !important;
+    height: 36px;
+    width: 100%;
+    margin: 0;
+    font-size: 13px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background-color: #495a6f !important;
+      cursor: pointer;
+    }
+  }
 
   padding: 1rem 1rem 0 1rem;
   grid-area: footer;
@@ -16,8 +36,9 @@ footer {
   .row-footer {
     background-color: #141921;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
+    padding-top: 4rem;
   }
   ul {
     list-style: none;

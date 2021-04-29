@@ -46,11 +46,12 @@ button.open-sidebar {
     border: none;
     width: 100%;
     border-radius: 5px 0 0 5px !important;
+    font-size: 15px;
   }
 
   .header__searchIcon {
     background-color: #f3a847;
-    padding: 10px !important;
+    padding: 10px 16px !important;
     border: none;
     display: flex;
     justify-content: center;
@@ -81,7 +82,7 @@ button.open-sidebar {
 }
 
 .header__optionLineTwo {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 800;
   color: white;
   text-decoration: none;
@@ -215,4 +216,8 @@ button.open-sidebar {
   .signin-mobile {
     display: none !important;
   }
+}
+
+.legend {
+  background: red;
 }

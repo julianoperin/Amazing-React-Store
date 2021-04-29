@@ -9,7 +9,7 @@ import LoadingBox from "../components/LoadingBox";
 //! Redux
 import { useSelector, useDispatch } from "react-redux";
 import { listProducts } from "../actions/productActions";
-// import { listTopSellers } from "../actions/userActions";
+import { listTopSellers } from "../actions/userActions";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -30,25 +30,28 @@ const HomeScreen = () => {
 
   return (
     <div className="container">
-      {/* <h2>Top Sellers</h2> */}
-      {/* {loadingSellers ? (
+      {/* <h2>Top Sellers</h2>
+      {loadingSellers ? (
         <LoadingBox></LoadingBox>
       ) : errorSellers ? (
         <MessageBox variant="danger">{errorSellers}</MessageBox>
       ) : (
-        <>
-          {sellers.length === 0 && <MessageBox>No Seller Found</MessageBox>}
-          <Carousel showArrows autoPlay showThumbs={false}>
-            {sellers.map((seller) => (
-              <div key={seller._id}>
-                <Link to={`/seller/${seller._id}`}>
-                  <img src={seller.seller.logo} alt={seller.seller.name} />
-                  <p className="legend">{seller.seller.name}</p>
-                </Link>
-              </div>
-            ))}
-          </Carousel>
-        </>
+        // {sellers.length === 0 && <MessageBox>No Seller Found</MessageBox>}
+        <Carousel
+          showArrows
+          autoPlay
+          showThumbs={false}
+          style={{ background: "red", color: "green" }}
+        >
+          {sellers.map((seller) => (
+            <div key={seller._id}>
+              <Link to={`/seller/${seller._id}`}>
+                <img src={seller.seller.logo} alt={seller.seller.name} />
+                <p className="legend">{seller.seller.name}</p>
+              </Link>
+            </div>
+          ))}
+        </Carousel>
       )} */}
       <h2 className="titles">All Products</h2>
       {loading ? (
