@@ -46,38 +46,38 @@ function UserListScreen(props) {
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <table className="table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>NAME</th>
-              <th>EMAIL</th>
-              <th>SELLER</th>
-              <th>ADMIN</th>
-              <th>ACTIONS</th>
+        <table role="table" className="table">
+          <thead role="rowgroup">
+            <tr role="row">
+              <th role="columnheader">ID</th>
+              <th role="columnheader">Name</th>
+              <th role="columnheader">Email</th>
+              <th role="columnheader">Seller</th>
+              <th role="columnheader">Admin</th>
+              <th role="columnheader">Edit / Delete</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody role="rowgroup">
             {users.map((user) => (
               <tr key={user._id}>
-                <td>{user._id}</td>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>
+                <td role="cell">{user._id}</td>
+                <td role="cell">{user.name}</td>
+                <td role="cell">{user.email}</td>
+                <td role="cell">
                   {user.isSeller ? (
                     <img className="yes__no__option" src={YES} alt="yes" />
                   ) : (
                     <img className="yes__no__option" src={NO} alt="no" />
                   )}
                 </td>
-                <td>
+                <td role="cell">
                   {user.isAdmin ? (
                     <img className="yes__no__option" src={YES} alt="yes" />
                   ) : (
                     <img className="yes__no__option" src={NO} alt="no" />
                   )}
                 </td>
-                <td>
+                <td role="cell">
                   <button
                     type="button"
                     className="small"
