@@ -1,0 +1,390 @@
+// ********* Tables ********* //
+table {
+  width: 100%;
+  border-collapse: collapse;
+  tbody tr:nth-of-type(odd) {
+    background-color: #f4f4f4;
+  }
+  td,
+  th {
+    border: 0.1rem solid #e4e4e4;
+    text-align: center;
+    font-size: 14px;
+  }
+  button {
+    margin: 0 0.3rem;
+    padding: 0.4rem;
+    border: none;
+  }
+}
+
+// ****  UserListScreen ****** //
+@media only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 760px) {
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+  .table__user__list__screen {
+    td,
+    th {
+      text-align: unset !important;
+    }
+
+    .yes__no__option {
+      width: 15px;
+    }
+
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    tr {
+      margin: 0 0 1rem 0;
+    }
+
+    tr:nth-child(odd) {
+      background: #ccc;
+    }
+
+    td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 38%;
+    }
+
+    td:before {
+      position: absolute;
+      top: 0;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    button {
+      padding: 0.15rem !important;
+      background: transparent;
+      border: none;
+    }
+
+    td:nth-of-type(1):before {
+      content: "ID";
+    }
+    td:nth-of-type(2):before {
+      content: "Name";
+    }
+    td:nth-of-type(3):before {
+      content: "Email";
+    }
+    td:nth-of-type(4):before {
+      content: "Seller";
+    }
+    td:nth-of-type(5):before {
+      content: "Admin";
+    }
+    td:nth-of-type(6):before {
+      content: "Edit / Delete";
+    }
+
+    // td:nth-of-type(7):before {
+    //   content: "Date of Birth";
+    // }
+    // td:nth-of-type(8):before {
+    //   content: "Dream Vacation City";
+    // }
+    // td:nth-of-type(9):before {
+    //   content: "GPA";
+    // }
+    // td:nth-of-type(10):before {
+    //   content: "Arbitrary Data";
+    // }
+  }
+}
+
+// ****  ProductListScreen ****** //
+@media only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 760px) {
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+  .table__product__list__screen {
+    td,
+    th {
+      text-align: unset !important;
+    }
+
+    .yes__no__option {
+      width: 15px;
+    }
+
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    tr {
+      margin: 0 0 1rem 0;
+    }
+
+    tr:nth-child(odd) {
+      background: #ccc;
+    }
+
+    td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 38%;
+    }
+
+    td:before {
+      position: absolute;
+      top: 0;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    button {
+      padding: 0.1rem !important;
+      background: none;
+      border: none;
+      margin-right: 1rem;
+    }
+
+    td:nth-of-type(1):before {
+      content: "Photo";
+    }
+    td:nth-of-type(2):before {
+      content: "Id";
+    }
+    td:nth-of-type(3):before {
+      content: "Name";
+    }
+    td:nth-of-type(4):before {
+      content: "Price";
+    }
+    td:nth-of-type(5):before {
+      content: "Category";
+    }
+    td:nth-of-type(6):before {
+      content: "Brand";
+    }
+
+    td:nth-of-type(7):before {
+      content: "Edit / Delete";
+    }
+    // td:nth-of-type(8):before {
+    //   content: "Dream Vacation City";
+    // }
+    // td:nth-of-type(9):before {
+    //   content: "GPA";
+    // }
+    // td:nth-of-type(10):before {
+    //   content: "Arbitrary Data";
+    // }
+  }
+}
+
+// ****  orderListScreen ****** //
+@media only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 760px) {
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+  .table__order__list__screen {
+    td,
+    th {
+      text-align: unset !important;
+    }
+
+    .yes__no__option {
+      width: 15px;
+    }
+
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    tr {
+      margin: 0 0 1rem 0;
+    }
+
+    tr:nth-child(odd) {
+      background: #ccc;
+    }
+
+    td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 38%;
+    }
+
+    td:before {
+      position: absolute;
+      top: 0;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    button {
+      padding: 0.1rem !important;
+      background: none;
+      border: none;
+      margin-right: 1rem;
+    }
+
+    td:nth-of-type(1):before {
+      content: "Id";
+    }
+    td:nth-of-type(2):before {
+      content: "User";
+    }
+    td:nth-of-type(3):before {
+      content: "Date";
+    }
+    td:nth-of-type(4):before {
+      content: "Total";
+    }
+    td:nth-of-type(5):before {
+      content: "Paid";
+    }
+    td:nth-of-type(6):before {
+      content: "Delivered";
+    }
+
+    td:nth-of-type(7):before {
+      content: "Details / Delete";
+    }
+    // td:nth-of-type(8):before {
+    //   content: "Dream Vacation City";
+    // }
+    // td:nth-of-type(9):before {
+    //   content: "GPA";
+    // }
+    // td:nth-of-type(10):before {
+    //   content: "Arbitrary Data";
+    // }
+  }
+}
+
+// ****  orderHistoryScreen ****** //
+@media only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 760px) {
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+  .table__order__history__screen {
+    td,
+    th {
+      text-align: unset !important;
+    }
+
+    .yes__no__option {
+      width: 15px;
+    }
+
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    tr {
+      margin: 0 0 1rem 0;
+    }
+
+    tr:nth-child(odd) {
+      background: #ccc;
+    }
+
+    td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 38%;
+    }
+
+    td:before {
+      position: absolute;
+      top: 0;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    button {
+      padding: 0.1rem !important;
+      background: none;
+      border: none;
+      margin-right: 0 !important;
+    }
+
+    td:nth-of-type(1):before {
+      content: "Id";
+    }
+    td:nth-of-type(2):before {
+      content: "Date";
+    }
+    td:nth-of-type(3):before {
+      content: "Total";
+    }
+    td:nth-of-type(4):before {
+      content: "Paid";
+    }
+    td:nth-of-type(5):before {
+      content: "Delivered";
+    }
+    td:nth-of-type(6):before {
+      content: "Details";
+    }
+
+    // td:nth-of-type(7):before {
+    //   content: "Edit / Delete";
+    // }
+    // td:nth-of-type(8):before {
+    //   content: "Dream Vacation City";
+    // }
+    // td:nth-of-type(9):before {
+    //   content: "GPA";
+    // }
+    // td:nth-of-type(10):before {
+    //   content: "Arbitrary Data";
+    // }
+  }
+}

@@ -6,6 +6,8 @@ import MessageBox from "../components/MessageBox";
 import { useSelector, useDispatch } from "react-redux";
 import { listOrderMine } from "../actions/orderActions";
 
+import NO from "../assets/cancel.png";
+
 const OrderHistoryScreen = (props) => {
   const orderMineList = useSelector((state) => state.orderMineList);
   const { orders, loading, error } = orderMineList;
@@ -24,7 +26,7 @@ const OrderHistoryScreen = (props) => {
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <table className="table">
+        <table className="table__order__history__screen">
           <thead>
             <tr>
               <th>ID</th>
@@ -32,7 +34,7 @@ const OrderHistoryScreen = (props) => {
               <th>TOTAL</th>
               <th>PAID</th>
               <th>DELIVERED</th>
-              <th>ACTIONS</th>
+              <th>Details</th>
             </tr>
           </thead>
           <tbody>
@@ -41,11 +43,19 @@ const OrderHistoryScreen = (props) => {
                 <td>{order._id}</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
                 <td>{order.totalPrice}</td>
-                <td>{order.isPaid ? order.paidAt.substring(0, 10) : "No"}</td>
                 <td>
-                  {order.isDelivered
-                    ? order.deliveredAt.substring(0, 10)
-                    : "No"}
+                  {order.isPaid ? (
+                    order.paidAt.substring(0, 10)
+                  ) : (
+                    <img className="yes__no__option" src={NO} alt="no" />
+                  )}
+                </td>
+                <td>
+                  {order.isDelivered ? (
+                    order.deliveredAt.substring(0, 10)
+                  ) : (
+                    <img className="yes__no__option" src={NO} alt="no" />
+                  )}
                 </td>
                 <td>
                   <button
@@ -53,7 +63,7 @@ const OrderHistoryScreen = (props) => {
                     className="small"
                     onClick={() => props.history.push(`/order/${order._id}`)}
                   >
-                    <i class="fas fa-edit"></i> Details
+                    <i class="fas fa-edit"></i>
                   </button>
                 </td>
               </tr>

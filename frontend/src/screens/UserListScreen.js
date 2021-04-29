@@ -46,7 +46,7 @@ function UserListScreen(props) {
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <table role="table" className="table">
+        <table role="table" className="table__user__list__screen">
           <thead role="rowgroup">
             <tr role="row">
               <th role="columnheader">ID</th>

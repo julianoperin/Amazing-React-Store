@@ -4,6 +4,7 @@ import App from "./App";
 import "./scss/index.scss";
 import "./scss/navbar.scss";
 import "./scss/footer.scss";
+import "./scss/tables.scss";
 
 import store from "./store";
 

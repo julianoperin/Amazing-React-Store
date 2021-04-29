@@ -5,6 +5,8 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { ORDER_DELETE_RESET } from "../constant/orderConstants";
 
+import NO from "../assets/cancel.png";
+
 export default function OrderListScreen(props) {
   const sellerMode = props.match.path.indexOf("/seller") >= 0;
   const orderList = useSelector((state) => state.orderList);
@@ -39,7 +41,7 @@ export default function OrderListScreen(props) {
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <table className="table">
+        <table className="table__order__list__screen">
           <thead>
             <tr>
               <th>ID</th>
@@ -48,7 +50,7 @@ export default function OrderListScreen(props) {
               <th>TOTAL</th>
               <th>PAID</th>
               <th>DELIVERED</th>
-              <th>ACTIONS</th>
+              <th>DETAILS / DELETE</th>
             </tr>
           </thead>
           <tbody>
@@ -58,11 +60,19 @@ export default function OrderListScreen(props) {
                 <td>{order.user ? order.user.name : "No Name"}</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
                 <td>{order.totalPrice.toFixed(2)}</td>
-                <td>{order.isPaid ? order.paidAt.substring(0, 10) : "No"}</td>
                 <td>
-                  {order.isDelivered
-                    ? order.deliveredAt.substring(0, 10)
-                    : "No"}
+                  {order.isPaid ? (
+                    order.paidAt.substring(0, 10)
+                  ) : (
+                    <img className="yes__no__option" src={NO} alt="no" />
+                  )}
+                </td>
+                <td>
+                  {order.isDelivered ? (
+                    order.deliveredAt.substring(0, 10)
+                  ) : (
+                    <img className="yes__no__option" src={NO} alt="no" />
+                  )}
                 </td>
                 <td>
                   <button
@@ -72,7 +82,7 @@ export default function OrderListScreen(props) {
                       props.history.push(`/order/${order._id}`);
                     }}
                   >
-                    <i class="fas fa-edit"></i> Details
+                    <i class="fas fa-edit"></i>
                   </button>
                   <button
                     type="button"
