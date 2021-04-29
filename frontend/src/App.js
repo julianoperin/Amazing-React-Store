@@ -40,8 +40,12 @@ import MessageBox from "./components/MessageBox";
 const App = () => {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
 
+  //! Display Cart Qty and Address on Navbar
   const cart = useSelector((state) => state.cart);
-  const { cartItems } = cart;
+  const {
+    cartItems,
+    shippingAddress: { city, postalCode },
+  } = cart;
 
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
@@ -53,7 +57,7 @@ const App = () => {
     setSidebarIsOpen(false);
   };
 
-  // //! To use categories on search screen
+  //! To use categories on search screen
   useEffect(() => {
     dispatch(listProductsCategories());
   }, [dispatch]);
@@ -68,6 +72,19 @@ const App = () => {
           </Link>
 
           {/* Address: Coming Soon */}
+          <Link to="#" className="header__option__address">
+            <span className="address__icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </span>
+            <div className="two__spans">
+              <span className="header__optionLineOne address__lineOne">
+                Deliver to {userInfo.name}
+              </span>
+              <span className="header__optionLineTwo address__lineOne">
+                {city} {postalCode}
+              </span>
+            </div>
+          </Link>
 
           {/* Burger Menu */}
           <button

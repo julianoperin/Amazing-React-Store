@@ -35,6 +35,33 @@ button.open-sidebar {
   }
 }
 
+// ****** Address ******* //
+.header__option__address {
+  display: flex;
+  margin: 0 10px 0 10px;
+  // border: 1px solid #222;
+  // padding: 5px;
+
+  // &:hover {
+  //   border: 1px solid #fff;
+  //   padding: 5px;
+  //   border-radius: 5px;
+  // }
+
+  .two__spans {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .address__icon {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+  }
+}
+
 // *** Search BTN *** //
 .header__search {
   display: flex;
@@ -77,14 +104,14 @@ button.open-sidebar {
 
 .header__optionLineOne {
   font-size: 13px;
-  color: white;
+  color: #ccc;
   text-decoration: none;
 }
 
 .header__optionLineTwo {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 800;
-  color: white;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -195,6 +222,10 @@ button.open-sidebar {
 
 @media only screen and (max-width: 885px) {
   .main__logo {
+    display: none;
+  }
+
+  .header__option__address {
     display: none;
   }
 
