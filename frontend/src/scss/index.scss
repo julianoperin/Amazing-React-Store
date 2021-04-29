@@ -317,12 +317,12 @@ button:hover {
 }
 .table td,
 .table th {
-  text-align: left;
+  text-align: center;
   border: 0.1rem solid #e4e4e4;
   padding: 0.5rem;
 }
 .table button {
-  margin: 0 0.2rem;
+  margin: 0 0.3rem;
 }
 
 /*!  checks inputs */
@@ -459,4 +459,8 @@ button.close-sidebar {
 
 .results-search {
   margin-left: 3.5rem;
+}
+
+.yes__no__option {
+  width: 20px;
 }

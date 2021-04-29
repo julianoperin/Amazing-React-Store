@@ -6,6 +6,9 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { USER_DETAILS_RESET } from "../constant/userConstants";
 
+import YES from "../assets/checked.png";
+import NO from "../assets/cancel.png";
+
 function UserListScreen(props) {
   const dispatch = useDispatch();
 
@@ -60,8 +63,20 @@ function UserListScreen(props) {
                 <td>{user._id}</td>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
-                <td>{user.isSeller ? "YES" : "NO"}</td>
-                <td>{user.isAdmin ? "YES" : "NO"}</td>
+                <td>
+                  {user.isSeller ? (
+                    <img className="yes__no__option" src={YES} alt="yes" />
+                  ) : (
+                    <img className="yes__no__option" src={NO} alt="no" />
+                  )}
+                </td>
+                <td>
+                  {user.isAdmin ? (
+                    <img className="yes__no__option" src={YES} alt="yes" />
+                  ) : (
+                    <img className="yes__no__option" src={NO} alt="no" />
+                  )}
+                </td>
                 <td>
                   <button
                     type="button"

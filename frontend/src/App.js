@@ -53,10 +53,10 @@ const App = () => {
     setSidebarIsOpen(false);
   };
 
-  // //! To use side categories on side list
-  // useEffect(() => {
-  //   dispatch(listProductsCategories());
-  // }, [dispatch]);
+  // //! To use categories on search screen
+  useEffect(() => {
+    dispatch(listProductsCategories());
+  }, [dispatch]);
 
   return (
     <Router>
