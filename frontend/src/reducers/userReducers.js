@@ -30,6 +30,7 @@ import {
   USER_TOPSELLERS_LIST_FAIL,
   USER_TOPSELLERS_LIST_SUCCESS,
   USER_TOPSELLERS_LIST_REQUEST,
+  USER_ADDRESS_MAP_CONFIRM,
 } from "../constant/userConstants";
 
 export const userSigninReducer = (state = {}, action) => {

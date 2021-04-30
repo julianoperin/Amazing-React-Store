@@ -83,14 +83,14 @@ function UserListScreen(props) {
                     className="small"
                     onClick={() => props.history.push(`/user/${user._id}/edit`)}
                   >
-                    <i class="fas fa-user-edit"></i>
+                    <i className="fas fa-user-edit"></i>
                   </button>
                   <button
                     type="button"
                     className="small"
                     onClick={() => deleteHandler(user)}
                   >
-                    <i class="fas fa-trash-alt"></i>
+                    <i className="fas fa-trash-alt"></i>
                   </button>
                 </td>
               </tr>

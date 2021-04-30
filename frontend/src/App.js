@@ -34,8 +34,6 @@ import UserEditScreen from "./screens/UserEditScreen";
 import SellerScreen from "./screens/SellerScreen";
 import SearchScreen from "./screens/SearchScreen";
 import { listProductsCategories } from "./actions/productActions";
-import LoadingBox from "./components/LoadingBox";
-import MessageBox from "./components/MessageBox";
 
 const App = () => {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
@@ -72,19 +70,35 @@ const App = () => {
           </Link>
 
           {/* Address: Coming Soon */}
-          <Link to="#" className="header__option__address">
-            <span className="address__icon">
-              <i class="fas fa-map-marker-alt"></i>
-            </span>
-            <div className="two__spans">
-              <span className="header__optionLineOne address__lineOne">
-                Deliver to {userInfo.name}
+          {userInfo ? (
+            <Link to="/shipping" className="header__option__address">
+              <span className="address__icon">
+                <i className="fas fa-map-marker-alt"></i>
               </span>
-              <span className="header__optionLineTwo address__lineOne">
-                {city} {postalCode}
+              <div className="two__spans">
+                <span className="header__optionLineOne address__lineOne">
+                  Deliver to {userInfo.name}
+                </span>
+                <span className="header__optionLineTwo address__lineOne">
+                  {city ? `${city} ${postalCode}` : "Choose address"}
+                </span>
+              </div>
+            </Link>
+          ) : (
+            <Link to="/shipping" className="header__option__address">
+              <span className="address__icon">
+                <i className="fas fa-map-marker-alt"></i>
               </span>
-            </div>
-          </Link>
+              <div className="two__spans">
+                <span className="header__optionLineOne address__lineOne">
+                  Hello
+                </span>
+                <span className="header__optionLineTwo address__lineOne">
+                  Select your address
+                </span>
+              </div>
+            </Link>
+          )}
 
           {/* Burger Menu */}
           <button
@@ -228,12 +242,12 @@ const App = () => {
                       to="/orderhistory"
                       onClick={() => setSidebarIsOpen(false)}
                     >
-                      <i class="fas fa-caret-right"></i> Order History
+                      <i className="fas fa-caret-right"></i> Order History
                     </Link>
                   </li>
                   <li>
                     <Link to="/profile" onClick={() => setSidebarIsOpen(false)}>
-                      <i class="fas fa-caret-right"></i> Profile
+                      <i className="fas fa-caret-right"></i> Profile
                     </Link>
                   </li>
                 </ul>
@@ -256,7 +270,7 @@ const App = () => {
                       to="/productlist"
                       onClick={() => setSidebarIsOpen(false)}
                     >
-                      <i class="fas fa-caret-right"></i> Products
+                      <i className="fas fa-caret-right"></i> Products
                     </Link>
                   </li>
                   <li>
@@ -264,7 +278,7 @@ const App = () => {
                       to="/orderlist"
                       onClick={() => setSidebarIsOpen(false)}
                     >
-                      <i class="fas fa-caret-right"></i> Orders
+                      <i className="fas fa-caret-right"></i> Orders
                     </Link>
                   </li>
                   <li>
@@ -272,7 +286,7 @@ const App = () => {
                       to="/userlist"
                       onClick={() => setSidebarIsOpen(false)}
                     >
-                      <i class="fas fa-caret-right"></i> Users
+                      <i className="fas fa-caret-right"></i> Users
                     </Link>
                   </li>
                 </ul>
@@ -292,7 +306,7 @@ const App = () => {
                       to="/productlist/seller"
                       onClick={() => setSidebarIsOpen(false)}
                     >
-                      <i class="fas fa-caret-right"></i> Products
+                      <i className="fas fa-caret-right"></i> Products
                     </Link>
                   </li>
                   <li>
@@ -300,7 +314,7 @@ const App = () => {
                       to="/orderlist/seller"
                       onClick={() => setSidebarIsOpen(false)}
                     >
-                      <i class="fas fa-caret-right"></i> Orders
+                      <i className="fas fa-caret-right"></i> Orders
                     </Link>
                   </li>
                 </ul>
@@ -310,7 +324,7 @@ const App = () => {
             {userInfo ? (
               <div className="dropdown">
                 <Link to="#signout" onClick={signoutHandler} className="user">
-                  <i class="fas fa-sign-out-alt"></i> Sign Out
+                  <i className="fas fa-sign-out-alt"></i> Sign Out
                 </Link>
               </div>
             ) : (
@@ -320,7 +334,7 @@ const App = () => {
                   className="user"
                   onClick={() => setSidebarIsOpen(false)}
                 >
-                  <i class="fas fa-user-plus"></i> Sign In
+                  <i className="fas fa-user-plus"></i> Sign In
                 </Link>
               </div>
             )}

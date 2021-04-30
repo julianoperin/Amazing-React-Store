@@ -5,11 +5,11 @@ import BackToTop from "../components/BackToTop";
 
 const Footer = () => {
   return (
-    <footer class="footer">
+    <footer className="footer">
       <BackToTop />
-      <div class="container-footer">
-        <div class="row-footer">
-          <div class="footer-col">
+      <div className="container-footer">
+        <div className="row-footer">
+          <div className="footer-col">
             <h4>company</h4>
             <ul>
               <li>
@@ -26,7 +26,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div class="footer-col">
+          <div className="footer-col">
             <h4>get help</h4>
             <ul>
               <li>
@@ -46,7 +46,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div class="footer-col">
+          <div className="footer-col">
             <h4>indoor plants</h4>
             <ul>
               <li>
@@ -63,7 +63,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div class="footer-col">
+          <div className="footer-col">
             <h4>indoor plants</h4>
             <ul>
               <li>
