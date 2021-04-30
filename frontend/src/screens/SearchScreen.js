@@ -83,8 +83,7 @@ const SearchScreen = (props) => {
             Reset Filters
           </Link>
         </button>
-        <div>
-          Sort by{" "}
+        <div className="sort-by">
           <select
             value={order}
             onChange={(e) => {
@@ -100,7 +99,7 @@ const SearchScreen = (props) => {
       </div>
       {/* //! Department */}
       <div className="row top">
-        <div className="col-1">
+        <div className="col-1 wrap-results">
           <h3>Department</h3>
           <div>
             {loadingCategories ? (
@@ -158,7 +157,7 @@ const SearchScreen = (props) => {
                     to={getFilterUrl({ rating: r.rating })}
                     className={`${r.rating}` === `${rating}` ? "active" : ""}
                   >
-                    <Rating caption={" & up"} rating={r.rating}></Rating>
+                    <Rating caption={" & Up"} rating={r.rating}></Rating>
                   </Link>
                 </li>
               ))}

@@ -447,26 +447,32 @@ button.close-sidebar {
   z-index: 50;
 }
 
-/* sort reset */
+// ****** Search Screen ****** //
+.wrap-results {
+  margin: 0 1rem;
+}
 .sort-reset {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0.6rem;
 }
 
 .sort-reset button {
-  /* flex: 1; */
   max-width: 15rem;
-  margin-left: 0.55rem;
+  background: none;
+  margin: 0 1rem;
 }
 
 .results-search {
-  margin-left: 3.5rem;
+  margin-left: 1rem;
 }
 
 .yes__no__option {
   width: 20px;
+}
+
+.sort-by select {
+  padding: 1rem 0;
 }
 
 // //***** Singles Review ****//
