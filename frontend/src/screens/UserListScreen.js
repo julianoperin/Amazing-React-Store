@@ -13,7 +13,7 @@ function UserListScreen(props) {
   const dispatch = useDispatch();
 
   const userList = useSelector((state) => state.userList);
-  const { loading, error, users, success } = userList;
+  const { loading, error, users } = userList;
 
   const userDelete = useSelector((state) => state.userDelete);
   const {

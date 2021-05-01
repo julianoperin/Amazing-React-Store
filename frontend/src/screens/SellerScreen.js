@@ -59,7 +59,7 @@ const SellerScreen = (props) => {
               ></Rating>
             </li>
             <li>
-              <a href={`mailto:${user.email}`} target="_blank">
+              <a href={`mailto:${user.email}`} target="_blank" rel="noreferrer">
                 Contact Seller
               </a>
             </li>

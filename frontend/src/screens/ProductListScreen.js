@@ -15,6 +15,7 @@ import {
 
 const ProductListScreen = (props) => {
   const sellerMode = props.match.path.indexOf("seller") >= 0;
+
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
 
@@ -49,7 +50,15 @@ const ProductListScreen = (props) => {
       dispatch({ type: PRODUCT_DELETE_RESET });
     }
     dispatch(listProducts({ seller: sellerMode ? userInfo._id : "" }));
-  }, [createdProduct, dispatch, props.history, successCreate, successDelete]);
+  }, [
+    createdProduct,
+    dispatch,
+    props.history,
+    sellerMode,
+    successCreate,
+    successDelete,
+    userInfo._id,
+  ]);
 
   const deleteHandler = (product) => {
     if (window.confirm("Are you sure you want to delete this product?"))

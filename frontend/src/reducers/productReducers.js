@@ -113,13 +113,13 @@ export const productUpdateReducer = (state = {}, action) => {
   }
 };
 
-//! DELETE Products
+//! DELETE Product
 export const productDeleteReducer = (state = {}, action) => {
   switch (action.type) {
     case PRODUCT_DELETE_REQUEST:
       return { loading: true };
     case PRODUCT_DELETE_SUCCESS:
-      return { loading: false, success: true };
+      return { loading: false, success: true, deletedUser: action.payload };
     case PRODUCT_DELETE_FAIL:
       return { loading: false, error: action.payload };
     case PRODUCT_DELETE_RESET:

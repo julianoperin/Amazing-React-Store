@@ -148,17 +148,35 @@ img.large {
 }
 .card-body {
   padding: 1rem;
-}
-.card-body > * {
-  margin-bottom: 0.5rem;
-}
-.price {
-  font-size: 2rem;
+
+  .card-title {
+    padding: 0 !important;
+    margin: 0 0 1.3rem 0;
+    color: #000;
+    font-size: 1.8rem !important;
+  }
+
+  .card-price {
+    margin: 1.5rem 0;
+    font-size: 2rem !important;
+    font-weight: 300;
+  }
+
+  .card-seller {
+    font-size: 1.5rem;
+    color: #000;
+  }
 }
 
-.card-price {
-  margin-top: 0.7rem;
+.price {
 }
+
+// .card-price {
+//   display: block;
+//   font-size: 2.2rem;
+//   margin-top: 0.7rem;
+//   position: absolute;
+// }
 
 //* Rating */
 .rating {

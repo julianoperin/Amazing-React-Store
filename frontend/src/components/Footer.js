@@ -13,16 +13,24 @@ const Footer = () => {
             <h4>company</h4>
             <ul>
               <li>
-                <a href="#">about us</a>
+                <a href="https://advertising.amazon.com/?ref=footer_advtsing_amzn_com">
+                  about us
+                </a>
               </li>
               <li>
-                <a href="#">our services</a>
+                <a href="https://advertising.amazon.com/?ref=footer_advtsing_amzn_com">
+                  our services
+                </a>
               </li>
               <li>
-                <a href="#">privacy policy</a>
+                <a href="https://advertising.amazon.com/?ref=footer_advtsing_amzn_com">
+                  privacy policy
+                </a>
               </li>
               <li>
-                <a href="#">affiliate program</a>
+                <a href="https://advertising.amazon.com/?ref=footer_advtsing_amzn_com">
+                  affiliate program
+                </a>
               </li>
             </ul>
           </div>
@@ -30,36 +38,29 @@ const Footer = () => {
             <h4>get help</h4>
             <ul>
               <li>
-                <a href="#">FAQ</a>
+                <a href="https://advertising.amazon.com/?ref=footer_advtsing_amzn_com">
+                  FAQ
+                </a>
               </li>
               <li>
-                <a href="#">shipping</a>
+                <a href="https://advertising.amazon.com/?ref=footer_advtsing_amzn_com">
+                  shipping
+                </a>
               </li>
               <li>
-                <a href="#">returns</a>
+                <a href="https://advertising.amazon.com/?ref=footer_advtsing_amzn_com">
+                  returns
+                </a>
               </li>
               <li>
-                <a href="#">order status</a>
+                <a href="https://advertising.amazon.com/?ref=footer_advtsing_amzn_com">
+                  order status
+                </a>
               </li>
               <li>
-                <a href="#">payment options</a>
-              </li>
-            </ul>
-          </div>
-          <div className="footer-col">
-            <h4>indoor plants</h4>
-            <ul>
-              <li>
-                <a href="#">outdoor plants</a>
-              </li>
-              <li>
-                <a href="#">referrals</a>
-              </li>
-              <li>
-                <a href="#">gift card</a>
-              </li>
-              <li>
-                <a href="#">careers</a>
+                <a href="https://advertising.amazon.com/?ref=footer_advtsing_amzn_com">
+                  payment options
+                </a>
               </li>
             </ul>
           </div>
@@ -67,16 +68,49 @@ const Footer = () => {
             <h4>indoor plants</h4>
             <ul>
               <li>
-                <a href="#">outdoor plants</a>
+                <a href="https://advertising.amazon.com/?ref=footer_advtsing_amzn_com">
+                  outdoor plants
+                </a>
               </li>
               <li>
-                <a href="#">referrals</a>
+                <a href="https://advertising.amazon.com/?ref=footer_advtsing_amzn_com">
+                  referrals
+                </a>
               </li>
               <li>
-                <a href="#">gift card</a>
+                <a href="https://advertising.amazon.com/?ref=footer_advtsing_amzn_com">
+                  gift card
+                </a>
               </li>
               <li>
-                <a href="#">careers</a>
+                <a href="https://advertising.amazon.com/?ref=footer_advtsing_amzn_com">
+                  careers
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h4>indoor plants</h4>
+            <ul>
+              <li>
+                <a href="https://advertising.amazon.com/?ref=footer_advtsing_amzn_com">
+                  outdoor plants
+                </a>
+              </li>
+              <li>
+                <a href="https://advertising.amazon.com/?ref=footer_advtsing_amzn_com">
+                  referrals
+                </a>
+              </li>
+              <li>
+                <a href="https://advertising.amazon.com/?ref=footer_advtsing_amzn_com">
+                  gift card
+                </a>
+              </li>
+              <li>
+                <a href="https://advertising.amazon.com/?ref=footer_advtsing_amzn_com">
+                  careers
+                </a>
               </li>
             </ul>
           </div>
