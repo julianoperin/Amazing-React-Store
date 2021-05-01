@@ -37,12 +37,12 @@ const SellerScreen = (props) => {
         ) : error ? (
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
-          <ul className="card card-body">
+          <ul className="card card-body card-body-profile">
             <li>
               <div className="row start">
                 <div className="p-1">
                   <img
-                    className="small"
+                    className="profile-img"
                     src={user.seller.logo}
                     alt={user.seller.name}
                   />
@@ -60,10 +60,13 @@ const SellerScreen = (props) => {
             </li>
             <li>
               <a href={`mailto:${user.email}`} target="_blank" rel="noreferrer">
-                Contact Seller
+                <i className="fas fa-envelope"></i> Contact Vendor
               </a>
             </li>
-            <li>{user.seller.description}</li>
+            <li>
+              <strong>Description: </strong>
+              {user.seller.description}
+            </li>
           </ul>
         )}
       </div>
