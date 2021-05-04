@@ -80,8 +80,8 @@ const SearchScreen = (props) => {
       <div className="sort-reset">
         <button>
           <Link
-            // className="primary"
-            to="/search/category/all/name/all/min/0/max/0/rating/0/order/newest"
+            className={"all" === category ? "active" : ""}
+            to="/search/name"
           >
             Reset Filters
           </Link>

@@ -17,7 +17,6 @@ import { createReview, detailsProduct } from "../actions/productActions";
 const ProductScreen = (props) => {
   const dispatch = useDispatch();
   const productId = props.match.params.id;
-  console.log(productId);
   const [qty, setQty] = useState(1);
 
   //! Product Details
