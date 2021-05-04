@@ -67,9 +67,7 @@ const ProfileScreen = () => {
   return (
     <div>
       <form className="form" onSubmit={submitHandler}>
-        <div>
-          <h1>User Profile</h1>
-        </div>
+        <h1 className="title-center">User Profile</h1>
         {loading ? (
           <LoadingBox></LoadingBox>
         ) : error ? (

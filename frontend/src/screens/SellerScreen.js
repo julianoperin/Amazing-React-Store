@@ -30,7 +30,7 @@ const SellerScreen = (props) => {
   }, [dispatch, sellerId]);
 
   return (
-    <div className="row top">
+    <div className="row top wrap-container">
       <div className="col-1">
         {loading ? (
           <LoadingBox></LoadingBox>

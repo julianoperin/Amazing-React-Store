@@ -32,13 +32,13 @@ const PlaceOrderScreen = (props) => {
     }
   }, [dispatch, order, props.history, success]);
   return (
-    <div>
+    <div className="wrap-container">
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
       <div className="row top">
         <div className="col-2">
           <ul>
             <li>
-              <div className="card card-body">
+              <div className="card card-body card-border ">
                 <h2>Shipping</h2>
                 <p>
                   <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
@@ -49,7 +49,7 @@ const PlaceOrderScreen = (props) => {
               </div>
             </li>
             <li>
-              <div className="card card-body">
+              <div className="card card-body card-border ">
                 <h2>Payment</h2>
                 <p>
                   <strong>Method:</strong> {cart.paymentMethod}
@@ -57,7 +57,7 @@ const PlaceOrderScreen = (props) => {
               </div>
             </li>
             <li>
-              <div className="card card-body">
+              <div className="card card-body card-border ">
                 <h2>Order Items</h2>
                 <ul>
                   {cart.cartItems.map((item) => (
@@ -87,8 +87,8 @@ const PlaceOrderScreen = (props) => {
             </li>
           </ul>
         </div>
-        <div className="col-1">
-          <div className="card card-body">
+        <div className="col-x">
+          <div className="card card-body card-border ">
             <ul>
               <li>
                 <h2>Order Summary</h2>

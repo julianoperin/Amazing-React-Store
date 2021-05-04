@@ -84,13 +84,13 @@ const OrderScreen = (props) => {
   ) : error ? (
     <MessageBox variant="danger">{error}</MessageBox>
   ) : (
-    <div>
-      <h1>ORDER {order._id}</h1>
+    <div className="wrap-container">
+      <h1 className="title-center">ORDER {order._id}</h1>
       <div className="row top">
         <div className="col-2">
           <ul>
             <li>
-              <div className="card card-body">
+              <div className="card card-body card-border">
                 <h2>Shipping</h2>
                 <p>
                   <strong>Name:</strong> {order.shippingAddress.fullName} <br />
@@ -109,7 +109,7 @@ const OrderScreen = (props) => {
               </div>
             </li>
             <li>
-              <div className="card card-body">
+              <div className="card card-body card-border">
                 <h2>Payment</h2>
                 <p>
                   <strong>Method:</strong> {order.paymentMethod}
@@ -124,7 +124,7 @@ const OrderScreen = (props) => {
               </div>
             </li>
             <li>
-              <div className="card card-body">
+              <div className="card card-body card-border">
                 <h2>Order Items</h2>
                 <ul>
                   {order.orderItems.map((item) => (
@@ -155,7 +155,7 @@ const OrderScreen = (props) => {
           </ul>
         </div>
         <div className="col-1">
-          <div className="card card-body">
+          <div className="card card-body card-border">
             <ul>
               <li>
                 <h2>Order Summary</h2>

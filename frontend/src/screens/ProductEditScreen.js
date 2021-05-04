@@ -85,7 +85,7 @@ export default function ProductEditScreen(props) {
   };
 
   return (
-    <div>
+    <div className="wrap-container">
       <form className="form" onSubmit={submitHandler}>
         <div>
           <h1>Edit Product {productId}</h1>

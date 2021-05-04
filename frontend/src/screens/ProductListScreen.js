@@ -42,6 +42,9 @@ const ProductListScreen = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (!userSignin) {
+      props.history.push("/");
+    }
     if (successCreate) {
       dispatch({ type: PRODUCT_CREATE_RESET });
       props.history.push(`/product/${createdProduct._id}/edit`);
@@ -70,7 +73,7 @@ const ProductListScreen = (props) => {
   };
 
   return (
-    <div>
+    <div className="wrap-container">
       <div className="row">
         <h1>Products</h1>
         <button type="button" className="primary" onClick={createHandler}>

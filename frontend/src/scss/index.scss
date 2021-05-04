@@ -100,8 +100,11 @@ a:hover {
 .row.top {
   align-items: flex-start;
 }
-.col-1 {
+
+// **** place order box **** //
+.col-x {
   flex: 1.5 1 25rem;
+  margin-top: 0.5rem;
 }
 
 .center {
@@ -110,6 +113,12 @@ a:hover {
   justify-content: center;
   align-items: center;
 }
+
+.col-1 {
+  flex: 1.5 1 25rem;
+  margin-top: 0.5rem;
+}
+
 .col-2 {
   flex: 2 1 35rem;
 }
@@ -158,8 +167,14 @@ img.large {
   margin: 1rem;
   z-index: 10;
 }
+
+.card-border {
+  border: 0.01rem #c0c0c0 solid;
+}
+
 .card-body {
   padding: 1rem;
+  margin: 0.5rem !important;
 
   .card-title {
     padding: 0 !important;
@@ -339,7 +354,7 @@ button:hover {
 //******* Form *******//
 .form {
   max-width: 60rem;
-  margin: 00 auto;
+  margin: 1rem auto;
 }
 
 .form > div {
@@ -556,6 +571,11 @@ button.close-sidebar {
 //   }
 
 // }
+
+.title-center {
+  text-align: center;
+  margin: 2rem 0 0 0;
+}
 
 // *** For home screen
 .container-all {

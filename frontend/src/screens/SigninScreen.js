@@ -34,7 +34,7 @@ const SigninScreen = (props) => {
   }, [userInfo, props.history, redirect]);
 
   return (
-    <div>
+    <div className="wrap-container">
       <form className="form" onSubmit={submitHandler}>
         <div>
           <h1>Sign In</h1>

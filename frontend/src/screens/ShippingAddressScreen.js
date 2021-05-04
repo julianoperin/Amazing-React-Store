@@ -34,7 +34,7 @@ const ShippingAddressScreen = (props) => {
   };
 
   return (
-    <div>
+    <div className="wrap-container">
       <CheckoutSteps step1 step2></CheckoutSteps>
       <form className="form" onSubmit={submitHandler}>
         <div>
