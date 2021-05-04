@@ -1,8 +1,8 @@
 // **** FOOTER ***** //
 footer {
   color: #fff;
-  height: 30vh;
-  background-color: #141921 !important;
+  height: 40vh;
+  background: #141921 !important;
   position: relative;
 
   .back__top {
@@ -35,9 +35,8 @@ footer {
   }
   .row-footer {
     background-color: #141921;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     padding-top: 4rem;
   }
   ul {
@@ -50,28 +49,28 @@ footer {
     padding: 0 15px;
   }
   .footer-col h4 {
-    font-size: 18px;
+    font-size: 15px;
     color: #ffffff;
     text-transform: capitalize;
-    margin-bottom: 35px;
-    font-weight: 500;
+    margin-bottom: 15px;
+    font-weight: 900;
     position: relative;
   }
-  .footer-col h4::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    background-color: #f3a847;
-    height: 2px;
-    box-sizing: border-box;
-    width: 50px;
-  }
+  // .footer-col h4::before {
+  //   content: "";
+  //   position: absolute;
+  //   left: 0;
+  //   bottom: -10px;
+  //   background-color: #f3a847;
+  //   height: 2px;
+  //   box-sizing: border-box;
+  //   width: 50px;
+  // }
   .footer-col ul li:not(:last-child) {
     margin-bottom: 10px;
   }
   .footer-col ul li a {
-    font-size: 16px;
+    font-size: 13px;
     text-transform: capitalize;
     color: #ffffff !important;
     text-decoration: none;
@@ -79,6 +78,7 @@ footer {
     color: #222;
     display: block;
     transition: all 0.3s ease-in-out;
+    opacity: 0.8;
   }
   .footer-col ul li a:hover {
     padding-left: 8px;
@@ -105,24 +105,35 @@ footer {
     background-color: #141921;
     text-align: center;
   }
+
+  .copyright {
+    text-align: center;
+    font-size: 13px;
+    opacity: 0.8;
+    margin-top: 1rem;
+  }
 }
 
 //****** FOOTER MEDIA QUERY *****///
-@media (max-width: 767px) {
-  .footer-col {
-    width: 50%;
-    margin-bottom: 30px;
+@media (max-width: 950px) {
+  .row-footer {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
-}
-@media (max-width: 574px) {
+
   .footer-col {
-    // width: 100% !important;
-  }
-  .footer-col .social-links {
-    width: 100% !important;
+    margin: 0 0 2rem 2rem;
   }
 
   .footer {
-    padding: 1rem 0 0 0 !important;
+    height: 65vh;
+  }
+}
+@media (max-width: 574px) {
+  .row-footer {
+    grid-template-columns: 1fr !important;
+    place-items: left;
+  }
+  .footer {
+    height: 123vh;
   }
 }
