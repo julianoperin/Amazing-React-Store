@@ -19,7 +19,7 @@ const OrderHistoryScreen = (props) => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="wrap-container">
       <h1>Order History</h1>
       {loading ? (
         <LoadingBox></LoadingBox>

@@ -32,7 +32,7 @@ const CartScreen = (props) => {
   };
 
   return (
-    <div className="row top">
+    <div className="row top wrap-container">
       <div className="col-2">
         <h1>Shopping Cart</h1>
         {error && <MessageBox variant="danger">{error}</MessageBox>}

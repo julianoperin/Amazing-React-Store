@@ -51,7 +51,7 @@ body {
 
 main {
   grid-area: main;
-  padding: 1rem;
+  // padding: 0 1rem;
 }
 
 // ****** Common ******* //
@@ -76,7 +76,7 @@ a:hover {
 }
 
 .container {
-  width: 96%;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -85,6 +85,7 @@ a:hover {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 1rem;
+  padding: 3rem 1.6rem;
 }
 
 .row {
@@ -150,10 +151,12 @@ img.large {
 
 // ****** Card ****** //
 .card {
-  border: 0.1rem #c0c0c0 solid;
-  background-color: #f8f8f8;
+  // border: 0.01rem #c0c0c0 solid;
+  // background-color: #fafafa;
+  background-color: #fff;
   border-radius: 0.5rem;
   margin: 1rem;
+  z-index: 10;
 }
 .card-body {
   padding: 1rem;
@@ -537,5 +540,48 @@ button.close-sidebar {
   .active {
     font-weight: bold;
     background-color: lightgray;
+  }
+}
+
+// .home-screen {
+//   background-image: url("https://images-na.ssl-images-amazon.com/images/G/01/img18/home/2021/gw/home_gw_dsktp_springtrend_1500x600._CB654716428_.jpg");
+//   background-repeat: no-repeat;
+//   background-attachment: initial;
+//   background-position: top;
+//   background-size: contain;
+//   background-color: #e9eded;
+
+//   .products-grid {
+//     background: red !important;
+//   }
+
+// }
+
+// *** For home screen
+.container-all {
+  background: #f2eeed;
+  height: 100%;
+}
+
+//**** For all but home screen
+.wrap-container {
+  margin: 2rem;
+}
+
+.home-screen {
+  background: #f2eeed;
+}
+
+.home-image {
+  width: 100%;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  pointer-events: none;
+  z-index: -1;
+  margin-bottom: -22rem;
+}
+
+@media only screen and (max-width: 615px) {
+  .home-image {
+    display: none;
   }
 }
