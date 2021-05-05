@@ -65,7 +65,7 @@ const ProfileScreen = () => {
   };
 
   return (
-    <div>
+    <div className="wrap-container">
       <form className="form" onSubmit={submitHandler}>
         <h1 className="title-center">User Profile</h1>
         {loading ? (

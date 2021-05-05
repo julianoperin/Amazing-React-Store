@@ -30,14 +30,14 @@ const SellerScreen = (props) => {
   }, [dispatch, sellerId]);
 
   return (
-    <div className="row top wrap-container">
+    <div className="row top wrap-container ">
       <div className="col-1">
         {loading ? (
           <LoadingBox></LoadingBox>
         ) : error ? (
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
-          <ul className="card card-body card-body-profile">
+          <ul className="card card-body card-body-profile card-border">
             <li>
               <div className="row start">
                 <div className="p-1">
