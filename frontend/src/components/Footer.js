@@ -190,6 +190,9 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+        <p className="copy-rights">
+          © 1996-2021, Amazing.com, Inc. or its affiliates
+        </p>
       </div>
     </footer>
   );

@@ -159,7 +159,7 @@ export const deleteProduct = (productId) => async (dispatch, getState) => {
   }
 };
 
-//! POST Create Comment
+//! POST Create Review
 export const createReview = (productId, review) => async (
   dispatch,
   getState
