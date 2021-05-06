@@ -24,7 +24,6 @@ import {
 } from "../constant/productConstants";
 
 //! GET all Products
-
 export const listProducts = ({
   pageNumber = "",
   seller = "",
