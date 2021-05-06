@@ -152,6 +152,7 @@ img.medium {
   height: 50%;
   width: 100%;
   border-radius: 0.5rem 0.5rem 0 0;
+  object-fit: cover !important;
 }
 
 img.large {
@@ -159,6 +160,7 @@ img.large {
 }
 
 // ****** Card ****** //
+
 .card {
   // border: 0.01rem #c0c0c0 solid;
   // background-color: #fafafa;
@@ -175,12 +177,13 @@ img.large {
 .card-body {
   padding: 1rem;
   margin: 0.5rem !important;
+  text-align: center;
 
   .card-title {
     padding: 0 !important;
     margin: 0 0 1.3rem 0;
     color: #000;
-    font-size: 1.8rem !important;
+    font-size: 1.9rem !important;
   }
 
   .card-price {
@@ -386,6 +389,17 @@ button:hover {
 
 .p-1 {
   padding: 1rem;
+}
+
+.align {
+  display: block;
+  margin: 0 auto;
+  font-style: italic;
+  font-family: "lato", sans-serif;
+}
+.seller-title {
+  font-size: 2rem;
+  padding: 0 !important;
 }
 
 .carousel .slide img {

@@ -25,7 +25,10 @@ export default function Product(props) {
         <div>
           {product.seller?._id && product.seller?.seller?.name && (
             <Link className="card-seller" to={`/seller/${product.seller._id}`}>
-              <strong>Vendor:</strong> {product.seller.seller.name}
+              <strong>
+                <i class="fas fa-shopping-bag"></i> Vendor:
+              </strong>{" "}
+              {product.seller.seller.name}
             </Link>
           )}
         </div>

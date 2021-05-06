@@ -40,24 +40,24 @@ const SellerScreen = (props) => {
           <ul className="card card-body card-body-profile card-border">
             <li>
               <div className="row start">
-                <div className="p-1">
+                <div className="p-1 align">
                   <img
                     className="profile-img"
                     src={user.seller.logo}
                     alt={user.seller.name}
                   />
                 </div>
-                <div className="p-1">
-                  <h1>{user.seller.name}</h1>
+                <div className="align">
+                  <h1 className="seller-title">{user.seller.name}</h1>
                 </div>
               </div>
             </li>
-            <li>
+            {/* <li>
               <Rating
                 rating={user.seller.rating}
                 numReviews={user.seller.numReviews}
               ></Rating>
-            </li>
+            </li> */}
             <li>
               <a href={`mailto:${user.email}`} target="_blank" rel="noreferrer">
                 <i className="fas fa-envelope"></i> Contact Vendor
