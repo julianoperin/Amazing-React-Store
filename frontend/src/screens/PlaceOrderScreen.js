@@ -41,10 +41,14 @@ const PlaceOrderScreen = (props) => {
               <div className="card card-body card-border ">
                 <h2>Shipping</h2>
                 <p>
-                  <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
-                  <strong>Address: </strong> {cart.shippingAddress.address},
+                  <strong>Name:</strong> {cart.shippingAddress.fullName}{" "}
+                </p>
+                <p>
+                  <strong>Address: </strong> {cart.shippingAddress.address}
+                </p>
+                <p>
                   {cart.shippingAddress.city}, {cart.shippingAddress.postalCode}
-                  ,{cart.shippingAddress.country}
+                  , {cart.shippingAddress.country}
                 </p>
               </div>
             </li>
@@ -70,7 +74,7 @@ const PlaceOrderScreen = (props) => {
                             className="small"
                           ></img>
                         </div>
-                        <div className="min-30">
+                        <div>
                           <Link to={`/product/${item.product}`}>
                             {item.name}
                           </Link>

@@ -44,11 +44,11 @@ const CartScreen = (props) => {
           <ul>
             {cartItems.map((item) => (
               <li key={item.product}>
-                <div className="row">
+                <div className="row card-border cart-items-screen">
                   <div>
                     <img src={item.image} alt={item.name} className="small" />
                   </div>
-                  <div className="min-30">
+                  <div>
                     <Link to={`/product/${item.product}`}>{item.name}</Link>
                   </div>
                   <div>
@@ -73,7 +73,7 @@ const CartScreen = (props) => {
                     type="button"
                     onClick={() => removeFromCartHandler(item.product)}
                   >
-                    Delete
+                    <i className="fas fa-trash-alt"></i>
                   </button>
                 </div>
               </li>
@@ -82,7 +82,7 @@ const CartScreen = (props) => {
         )}
       </div>
       <div className="col-1">
-        <div className="card card-body">
+        <div className="card card-body card-border">
           <ul>
             <li>
               <h2>
