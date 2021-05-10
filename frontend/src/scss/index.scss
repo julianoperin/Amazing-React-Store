@@ -552,6 +552,10 @@ button.close-sidebar {
   }
 }
 
+.description-product {
+  margin-left: 2rem;
+}
+
 @media only screen and (max-width: 644px) {
   .description-product {
     align-items: flex-start;
@@ -565,7 +569,7 @@ button.close-sidebar {
 // *** Pagination *** //
 .pagination {
   display: flex !important;
-  flex-direction: row;
+  flex-direction: row !important;
   margin: 1rem 0 1.5rem 0;
   a {
     color: #000;
